@@ -43,6 +43,9 @@ const config: Config = {
       maxWidth: {
         container: '1320px',
       },
+      colors: {
+        red: '#FF0000',
+      },
       backgroundColor: {
         head: 'linear-gradient(180deg, rgba(0, 0, 0, 0.00) 0%, #000 82.06%)',
       },
