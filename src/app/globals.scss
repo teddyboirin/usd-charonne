@@ -16,3 +16,11 @@ body {
         background: linear-gradient(180deg, rgba(0, 0, 0, 0.00) 0%, #000 82.06%);
     }
 }
+
+
+.open_menu {
+    opacity: 1 !important;
+    visibility: visible !important;
+    transition: 300ms;
+    top:0;
+}
