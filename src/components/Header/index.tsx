@@ -12,9 +12,9 @@ export default function Header() {
 
   const handleMenu = (action: string) => {
     if (action === 'open') {
-        MenuRef?.current.classList.add('open_menu');
+      MenuRef?.current.classList.add('open_menu');
     } else if (action === 'close') {
-        MenuRef?.current.classList.remove('open_menu');
+      MenuRef?.current.classList.remove('open_menu');
     }
   };
   return width > 768 ? (
@@ -34,7 +34,7 @@ export default function Header() {
           </ul>
         </div>
         <div className="flex items-center justify-center">
-          <Logo />
+          <a href="/"><Logo /></a>
         </div>
         <div className="flex items-center justify-start">
           <ul className={ulStyle}>
@@ -54,13 +54,22 @@ export default function Header() {
   ) : (
     <header className="md:hidden absolute top-0 left-0 z-10 w-full p-4 text-white flex items-center justify-between">
       <Logo />
-      <div className="h-[36px] w-[36px] bg-red rounded-[8px] flex items-center flex-col justify-center gap-0.25 cursor-pointer" onClick={() => handleMenu('open')}>
+      <div
+        className="h-[36px] w-[36px] bg-red rounded-[8px] flex items-center flex-col justify-center gap-0.25 cursor-pointer"
+        onClick={() => handleMenu('open')}
+      >
         <div className="h-[2px] w-[20px] bg-white rounded-[8px]" />
         <div className="h-[2px] w-[20px] bg-white rounded-[8px]" />
         <div className="h-[2px] w-[20px] bg-white rounded-[8px]" />
       </div>
-      <div ref={MenuRef} className="opacity-0 invisible absolute bg-[#1E1E1E] pb-6 pt-3 w-screen left-0 top-[-100vw] duration-[300ms] ease-linear">
-        <div className="h-[36px] w-[36px] bg-red rounded-[8px] flex items-center flex-col justify-center gap-0.25 cursor-pointer absolute right-[24px] top-[24px]" onClick={() => handleMenu('close')}>
+      <div
+        ref={MenuRef}
+        className="opacity-0 invisible absolute bg-[#1E1E1E] pb-6 pt-3 w-screen left-0 top-[-100vw] duration-[300ms] ease-linear"
+      >
+        <div
+          className="h-[36px] w-[36px] bg-red rounded-[8px] flex items-center flex-col justify-center gap-0.25 cursor-pointer absolute right-[24px] top-[24px]"
+          onClick={() => handleMenu('close')}
+        >
           <svg
             width="13"
             height="13"

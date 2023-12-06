@@ -45,6 +45,9 @@ const config: Config = {
       },
       colors: {
         red: '#FF0000',
+        dark: {
+          '1': '#1E1E1E',
+        }
       },
       backgroundColor: {
         head: 'linear-gradient(180deg, rgba(0, 0, 0, 0.00) 0%, #000 82.06%)',
