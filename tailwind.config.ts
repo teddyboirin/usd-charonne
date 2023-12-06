@@ -45,12 +45,17 @@ const config: Config = {
       },
       colors: {
         red: '#FF0000',
+        blue: '#0000B3',
+        filter: 'rgba(0, 0, 0, 0.725)',
         dark: {
           '1': '#1E1E1E',
         }
       },
       backgroundColor: {
         head: 'linear-gradient(180deg, rgba(0, 0, 0, 0.00) 0%, #000 82.06%)',
+      },
+      borderRadius:{
+        basic: '8px',
       },
       fontSize: {
         // Titles
@@ -64,6 +69,8 @@ const config: Config = {
       hero: ['64px', { lineHeight: '70px', letterSpacing: '-0.03em' }],
 
       // Statics
+      10: ['10px', { lineHeight: '16px', letterSpacing: '0' }],
+      11: ['11px', { lineHeight: '16px', letterSpacing: '0' }],
       12: ['12px', { lineHeight: '16px', letterSpacing: '0' }],
       13: ['13px', { lineHeight: '15.6px', letterSpacing: '0' }],
       14: ['14px', { lineHeight: '18px', letterSpacing: '0' }],
