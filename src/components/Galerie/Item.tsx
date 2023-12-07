@@ -1,31 +1,21 @@
-import Image from 'next/image';
 import { useState } from 'react';
-import Arrow from '../icons/Arrow';
 import { AnimatePresence, motion } from 'framer-motion';
+import dynamic from 'next/dynamic'
+import Image from 'next/image';
+import Arrow from '../icons/Arrow';
+import Open from './Open';
 
 interface Props {
   imageLink: string;
   onClick?: () => void;
 }
 
-const RenderPhoto = ({ imageLink, onClick }): JSX.Element => {
-  return (
-    <>
-      <div className="h-screen w-screen bg-filter z-[100] fixed top-0 left-0 flex items-center justify-center">
-        <div className="right-4 top-4 absolute text-white cursor-pointer h-[20px] w-[20px] flex items-center justify-center">
-          <button type="button" onClick={onClick}>
-            <Arrow />
-          </button>
-        </div>
-        <div className="w-[90%] h-[90%] bg-orange-400 relative">
-          <Image src={imageLink} alt="image" fill objectFit="cover" />
-        </div>
-      </div>
-    </>
-  );
-};
+const DynamicOpen = dynamic(() => import('./Open'), {
+  loading: () => <p>Chargement...</p>,
+})
+ 
 
-function GalerieItem({ imageLink, onClick }: Props) {
+function GalerieItem({ imageLink }: Props) {
   const [isOpen, setIsOpen] = useState(false);
   const handlePicture = (action) => {
     if (action === 'open') {
@@ -48,7 +38,7 @@ function GalerieItem({ imageLink, onClick }: Props) {
             transition={{ duration: 0.3 }}
             exit={{ opacity: 0, y: -45 }}
           >
-            <RenderPhoto
+            <DynamicOpen
               imageLink={imageLink}
               onClick={() => handlePicture(isOpen ? 'close' : 'open')}
             />

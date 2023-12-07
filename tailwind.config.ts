@@ -47,6 +47,7 @@ const config: Config = {
         red: '#FF0000',
         blue: '#0000B3',
         filter: 'rgba(0, 0, 0, 0.725)',
+        filterRed: 'linear-gradient(180deg, rgba(12, 12, 12, 0.00) 0%, rgba(255, 0, 0, 0.50) 91.02%)',
         dark: {
           '1': '#1E1E1E',
         }
@@ -54,35 +55,35 @@ const config: Config = {
       backgroundColor: {
         head: 'linear-gradient(180deg, rgba(0, 0, 0, 0.00) 0%, #000 82.06%)',
       },
-      borderRadius:{
+      borderRadius: {
         basic: '8px',
       },
       fontSize: {
         // Titles
-      '5xl': ['40px', { lineHeight: '44px', letterSpacing: '-0.03em' }],
-      '4xl': ['32px', { lineHeight: '40px', letterSpacing: '-0.02em' }],
-      '3xl': ['26px', { lineHeight: '32px', letterSpacing: '-0.02em' }],
-      '2xl': ['24px', { lineHeight: '32px', letterSpacing: '-0.02em' }],
-      '1xl': ['22px', { lineHeight: '28px', letterSpacing: '-0.02em' }],
+        '5xl': ['40px', { lineHeight: '44px', letterSpacing: '-0.03em' }],
+        '4xl': ['32px', { lineHeight: '40px', letterSpacing: '-0.02em' }],
+        '3xl': ['26px', { lineHeight: '32px', letterSpacing: '-0.02em' }],
+        '2xl': ['24px', { lineHeight: '32px', letterSpacing: '-0.02em' }],
+        '1xl': ['22px', { lineHeight: '28px', letterSpacing: '-0.02em' }],
 
-      // Hero
-      hero: ['64px', { lineHeight: '70px', letterSpacing: '-0.03em' }],
+        // Hero
+        hero: ['64px', { lineHeight: '70px', letterSpacing: '-0.03em' }],
 
-      // Statics
-      10: ['10px', { lineHeight: '16px', letterSpacing: '0' }],
-      11: ['11px', { lineHeight: '16px', letterSpacing: '0' }],
-      12: ['12px', { lineHeight: '16px', letterSpacing: '0' }],
-      13: ['13px', { lineHeight: '15.6px', letterSpacing: '0' }],
-      14: ['14px', { lineHeight: '18px', letterSpacing: '0' }],
-      16: ['16px', { lineHeight: '22px', letterSpacing: '0' }],
-      18: ['18px', { lineHeight: '24px', letterSpacing: '0' }],
-      20: ['20px', { lineHeight: '24px' }],
-      26: ['26px', { lineHeight: '32px', letterSpacing: '-0.02em' }],
-      32: ['32px', { lineHeight: '40px', letterSpacing: '-0.02em' }],
-      40: ['40px', { lineHeight: '48px', letterSpacing: '0' }],
-      24: ['24px', { lineHeight: '32px', letterSpacing: '-0.02em' }],
-      22: ['22px', { lineHeight: '28px', letterSpacing: '-0.02em' }],
-      64: ['64px', { lineHeight: '70px', letterSpacing: '-0.03em' }],
+        // Statics
+        10: ['10px', { lineHeight: '16px', letterSpacing: '0' }],
+        11: ['11px', { lineHeight: '16px', letterSpacing: '0' }],
+        12: ['12px', { lineHeight: '16px', letterSpacing: '0' }],
+        13: ['13px', { lineHeight: '15.6px', letterSpacing: '0' }],
+        14: ['14px', { lineHeight: '18px', letterSpacing: '0' }],
+        16: ['16px', { lineHeight: '22px', letterSpacing: '0' }],
+        18: ['18px', { lineHeight: '24px', letterSpacing: '0' }],
+        20: ['20px', { lineHeight: '24px' }],
+        26: ['26px', { lineHeight: '32px', letterSpacing: '-0.02em' }],
+        32: ['32px', { lineHeight: '40px', letterSpacing: '-0.02em' }],
+        40: ['40px', { lineHeight: '48px', letterSpacing: '0' }],
+        24: ['24px', { lineHeight: '32px', letterSpacing: '-0.02em' }],
+        22: ['22px', { lineHeight: '28px', letterSpacing: '-0.02em' }],
+        64: ['64px', { lineHeight: '70px', letterSpacing: '-0.03em' }],
       }
     },
   },
