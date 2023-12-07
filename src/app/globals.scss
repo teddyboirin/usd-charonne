@@ -161,6 +161,17 @@ body {
     rgba(0, 0, 179, 0.33) 121.61%
   );
 }
+.gradient_menu {
+  background: linear-gradient(
+    108deg,
+    #ff0000 -79.72%,
+    rgba(0, 0, 179, 1) 121.61%
+  );
+}
+
+.box_menu {
+  box-shadow: 0 0 10px #ff0000;
+}
 
 .open_menu {
   opacity: 1 !important;

@@ -34,7 +34,9 @@ export default function Header() {
           </ul>
         </div>
         <div className="flex items-center justify-center">
-          <a href="/"><Logo /></a>
+          <a href="/">
+            <Logo />
+          </a>
         </div>
         <div className="flex items-center justify-start">
           <ul className={ulStyle}>
@@ -55,7 +57,7 @@ export default function Header() {
     <header className="md:hidden absolute top-0 left-0 z-10 w-full p-4 text-white flex items-center justify-between">
       <Logo />
       <div
-        className="h-[36px] w-[36px] bg-red rounded-[8px] flex items-center flex-col justify-center gap-0.25 cursor-pointer"
+        className="h-[36px] w-[36px] bg-red box_menu rounded-[8px] flex items-center flex-col justify-center gap-0.25 cursor-pointer"
         onClick={() => handleMenu('open')}
       >
         <div className="h-[2px] w-[20px] bg-white rounded-[8px]" />
@@ -64,10 +66,10 @@ export default function Header() {
       </div>
       <div
         ref={MenuRef}
-        className="opacity-0 invisible absolute bg-[#1E1E1E] pb-6 pt-3 w-screen left-0 top-[-100vw] duration-[300ms] ease-linear"
+        className="opacity-0 invisible absolute bg-black text-white pb-6 pt-3 w-screen left-0 top-[-100vw] duration-[300ms] ease-linear"
       >
         <div
-          className="h-[36px] w-[36px] bg-red rounded-[8px] flex items-center flex-col justify-center gap-0.25 cursor-pointer absolute right-[24px] top-[24px]"
+          className="h-[36px] w-[36px] bg-red box_menu rounded-[8px] flex items-center flex-col justify-center gap-0.25 cursor-pointer absolute right-[24px] top-[24px]"
           onClick={() => handleMenu('close')}
         >
           <svg
@@ -82,14 +84,14 @@ export default function Header() {
               y1="1.04842"
               x2="11.6623"
               y2="11.8008"
-              stroke="#1E1E1E"
+              stroke="white"
             />
             <line
               x1="0.894005"
               y1="11.8008"
               x2="11.6464"
               y2="1.04842"
-              stroke="#1E1E1E"
+              stroke="white"
             />
           </svg>
         </div>
@@ -97,23 +99,23 @@ export default function Header() {
           <Logo />
         </div>
         <nav className="h-full w-full">
-          <ul className="h-full w-full flex items-center justify-center flex-col gap-3">
-            <li className="text-22">
+          <ul className="h-full w-full flex items-center justify-center flex-col gap-2">
+            <li className="text-16">
               <a href="">Le club</a>
             </li>
-            <li className="text-22">
+            <li className="text-16">
               <a href="">Nous rejoindre</a>
             </li>
-            <li className="text-22">
+            <li className="text-16">
               <a href="">Nos pratiques</a>
             </li>
-            <li className="text-22">
+            <li className="text-16">
               <a href="">Formations</a>
             </li>
-            <li className="text-22">
+            <li className="text-16">
               <a href="">École de basket</a>
             </li>
-            <li className="text-22">
+            <li className="text-16">
               <a href="">Compétition FFBB</a>
             </li>
           </ul>

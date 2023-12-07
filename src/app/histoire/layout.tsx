@@ -12,7 +12,6 @@ export default function HistoireLayout({
   return (
     <html lang="fr">
       <body>
-        <Header />
         {children}
       </body>
     </html>

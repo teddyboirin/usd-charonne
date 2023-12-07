@@ -11,10 +11,7 @@ export default function TeamItemLayout({
 }) {
   return (
     <html lang="fr">
-      <body className="bg-black">
-        <Header />
-        {children}
-      </body>
+      <body className="bg-black">{children}</body>
     </html>
   );
 }

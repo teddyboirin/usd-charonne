@@ -12,7 +12,6 @@ export default function TeamsLayout({
   return (
     <html lang="fr">
       <body className="bg-black">
-        <Header />
         {children}
       </body>
     </html>
