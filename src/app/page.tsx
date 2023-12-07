@@ -8,7 +8,7 @@ export default function Home() {
     <>
       <Head title="MATCH SÉNIORS 1 VS FRESNES" desc="24 NOV 2023 20:30" />
       <section className="bg-black p-6 w-full flex flex-col items-center gap-6">
-        <H2 title="Derniers résultats" />
+        <H2 title="Derniers résultats" uppercase/>
         <LastResults />
       </section>
       <ImageSide title="title1" content="text" image="https://placehold.co/600"/>
