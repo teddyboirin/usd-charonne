@@ -51,7 +51,15 @@ const config: Config = {
         filterRed: 'linear-gradient(180deg, rgba(12, 12, 12, 0.00) 0%, rgba(255, 0, 0, 0.50) 91.02%)',
         dark: {
           '1': '#1E1E1E',
-        }
+        },
+        gray: {
+          0: '#F6F5F2',
+          1: '#22211E',
+          2: '#717171',
+          3: '#E9E8E4',
+          4: '#C8C8C8',
+          5: '#E3E4DB',
+        },
       },
       backgroundColor: {
         head: 'linear-gradient(180deg, rgba(0, 0, 0, 0.00) 0%, #000 82.06%)',

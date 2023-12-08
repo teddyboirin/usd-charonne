@@ -191,3 +191,16 @@ body {
 .border_footer {
   border-top: 1px solid rgba(255, 255, 255, 0.25);
 }
+
+.border_files {
+  background: linear-gradient(
+    230deg,
+    #ff0000 -79.72%,
+    rgba(0, 0, 179, 1) 121.61%
+    );
+    padding: 0.1rem;
+  }
+  
+  .border_tab {
+    border: 1px solid rgba(255, 255, 255, 0.25);
+}

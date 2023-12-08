@@ -27,7 +27,7 @@ export default function Header() {
               <Link href="/club">Le club</Link>
             </li>
             <li className={liStyle}>
-              <Link href="/histoire">Nous rejoindre</Link>
+              <Link href="/nous-rejoindre">Nous rejoindre</Link>
             </li>
             <li className={liStyle}>
               <Link href="/nos-pratiques">Nos pratiques</Link>
@@ -42,13 +42,13 @@ export default function Header() {
         <div className="flex items-center justify-start">
           <ul className={ulStyle}>
             <li className={liStyle}>
-            <Link href="/">Formation</Link>
+              <Link href="/">Formation</Link>
             </li>
             <li className={liStyle}>
-            <Link href="/">École de basket</Link>
+              <Link href="/">École de basket</Link>
             </li>
             <li className={liStyle}>
-            <Link href="/histoire">Compétitions FFBB</Link>
+              <Link href="/histoire">Compétitions FFBB</Link>
             </li>
           </ul>
         </div>
@@ -105,16 +105,16 @@ export default function Header() {
               <Link href="/club">Le club</Link>
             </li>
             <li className="text-16">
-            <Link href="/histoire">Nous rejoindre</Link>
+              <Link href="/nous-rejoindre">Nous rejoindre</Link>
             </li>
             <li className="text-16">
-            <Link href="/nos-pratiques">Nos pratiques</Link>
+              <Link href="/nos-pratiques">Nos pratiques</Link>
             </li>
             <li className="text-16">
-            <Link href="/histoire">Formations</Link>
+              <Link href="/histoire">Formations</Link>
             </li>
             <li className="text-16">
-            <Link href="/histoire">École de basket</Link>
+              <Link href="/histoire">École de basket</Link>
             </li>
             <li className="text-16">
               <a href="">Compétitions FFBB</a>
