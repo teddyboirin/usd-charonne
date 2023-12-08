@@ -2,6 +2,7 @@
 import React, { useMemo, useRef } from 'react';
 import { useWindowSize } from 'react-use';
 import Logo from '../icons/logo';
+import Link from 'next/link';
 
 export default function Header() {
   const ulStyle = useMemo(() => 'flex gap-6', []);
@@ -23,31 +24,31 @@ export default function Header() {
         <div className="flex items-center justify-end">
           <ul className={ulStyle}>
             <li className={liStyle}>
-              <a href="">Le club</a>
+              <Link href="/club">Le club</Link>
             </li>
             <li className={liStyle}>
-              <a href="">Nous rejoindre</a>
+              <Link href="/histoire">Nous rejoindre</Link>
             </li>
             <li className={liStyle}>
-              <a href="">Nos pratiques</a>
+              <Link href="/histoire">Nos pratiques</Link>
             </li>
           </ul>
         </div>
         <div className="flex items-center justify-center">
-          <a href="/">
+          <Link href="/">
             <Logo />
-          </a>
+          </Link>
         </div>
         <div className="flex items-center justify-start">
           <ul className={ulStyle}>
             <li className={liStyle}>
-              <a href="">Formations</a>
+            <Link href="/">Formation</Link>
             </li>
             <li className={liStyle}>
-              <a href="">École de basket</a>
+            <Link href="/">École de basket</Link>
             </li>
             <li className={liStyle}>
-              <a href="">Compétition FFBB</a>
+            <Link href="/histoire">Compétitions FFBB</Link>
             </li>
           </ul>
         </div>
@@ -101,22 +102,22 @@ export default function Header() {
         <nav className="h-full w-full">
           <ul className="h-full w-full flex items-center justify-center flex-col gap-2">
             <li className="text-16">
-              <a href="">Le club</a>
+              <Link href="/club">Le club</Link>
             </li>
             <li className="text-16">
-              <a href="">Nous rejoindre</a>
+            <Link href="/histoire">Nous rejoindre</Link>
             </li>
             <li className="text-16">
-              <a href="">Nos pratiques</a>
+            <Link href="/histoire">Nos pratiques</Link>
             </li>
             <li className="text-16">
-              <a href="">Formations</a>
+            <Link href="/histoire">Formations</Link>
             </li>
             <li className="text-16">
-              <a href="">École de basket</a>
+            <Link href="/histoire">École de basket</Link>
             </li>
             <li className="text-16">
-              <a href="">Compétition FFBB</a>
+              <a href="">Compétitions FFBB</a>
             </li>
           </ul>
         </nav>

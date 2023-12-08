@@ -61,6 +61,7 @@ const config: Config = {
       },
       fontSize: {
         // Titles
+        '6xl': ['48px', { lineHeight: '48px', letterSpacing: '-0.03em' }],
         '5xl': ['40px', { lineHeight: '44px', letterSpacing: '-0.03em' }],
         '4xl': ['32px', { lineHeight: '40px', letterSpacing: '-0.02em' }],
         '3xl': ['26px', { lineHeight: '32px', letterSpacing: '-0.02em' }],
