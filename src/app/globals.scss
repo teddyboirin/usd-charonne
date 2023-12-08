@@ -135,6 +135,11 @@ body {
   font-family: 'Poppins', sans-serif;
 }
 
+html,
+body {
+  scroll-behavior: smooth;
+}
+
 * {
   box-sizing: border-box;
 }
