@@ -30,7 +30,7 @@ export default function Header() {
               <Link href="/histoire">Nous rejoindre</Link>
             </li>
             <li className={liStyle}>
-              <Link href="/histoire">Nos pratiques</Link>
+              <Link href="/nos-pratiques">Nos pratiques</Link>
             </li>
           </ul>
         </div>
@@ -108,7 +108,7 @@ export default function Header() {
             <Link href="/histoire">Nous rejoindre</Link>
             </li>
             <li className="text-16">
-            <Link href="/histoire">Nos pratiques</Link>
+            <Link href="/nos-pratiques">Nos pratiques</Link>
             </li>
             <li className="text-16">
             <Link href="/histoire">Formations</Link>
