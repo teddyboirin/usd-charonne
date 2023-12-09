@@ -2,7 +2,7 @@ import { memo } from 'react';
 
 function Preheader() {
   return (
-    <div className="absolute top-0 w-full p-1.5 bg-dark-1 text-white z-50 text-14 flex items-center justify-center">
+    <div className="absolute top-0 w-full p-0.5 md:p-1.5 bg-dark-1 text-white z-50 text-11 md:text-14 flex items-center justify-center">
       <p>Recherchons joueurs, joueuses et entraineurs</p>
     </div>
   );

@@ -1,6 +1,13 @@
 'use client';
-import { Autoplay, EffectFade, Keyboard, Pagination, Navigation } from 'swiper/modules';
+import {
+  Autoplay,
+  EffectFade,
+  Keyboard,
+  Pagination,
+  Navigation,
+} from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
+import { AnimatePresence, motion } from 'framer-motion';
 import H2 from '../Titles/h2';
 import 'swiper/css/effect-fade';
 import 'swiper/css';
@@ -24,8 +31,29 @@ const Item = ({ title, desc, img }: Props) => {
       }}
     >
       <div className="min-h-[700px] md:min-h-[600px] absolute w-full p-4 md:p-7 gradient_head bottom-0 flex items-center justify-end flex-col">
-        <H2 title={title} center />
-        <H5 title={desc} white />
+        <AnimatePresence>
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ type: 'just', duration: 0.3, ease: 'easeInOut' }}
+            exit={{ opacity: 0, y: 25 }}
+          >
+            <H2 title={title} center />
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{
+              type: 'just',
+              duration: 0.3,
+              ease: 'easeInOut',
+              delay: 0.3,
+            }}
+            exit={{ opacity: 0, y: 25 }}
+          >
+            <H5 title={desc} white />
+          </motion.div>
+        </AnimatePresence>
       </div>
     </div>
   );
@@ -58,13 +86,13 @@ export default function Head() {
             img="./assets/bg-head.jpg"
           />
         </SwiperSlide>
-        <SwiperSlide>
+        {/* <SwiperSlide>
           <Item
             title="MATCH SÉNIORS 1F VS LOS ANGELES"
             desc="17 DÉC 2023 20:30"
             img="https://placehold.co/800x300"
           />
-        </SwiperSlide>
+        </SwiperSlide> */}
       </Swiper>
     </>
   );

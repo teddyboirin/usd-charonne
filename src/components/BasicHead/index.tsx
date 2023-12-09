@@ -1,4 +1,6 @@
+'use client';
 import { memo } from 'react';
+import { motion } from 'framer-motion';
 import H1 from '../Titles/h1';
 
 interface Props {
@@ -12,10 +14,14 @@ function BasicHead({ image, title }: Props) {
       className="bg-black w-full min-h-[270px] md:min-h-[390px] flex items-center justify-center"
       style={{ backgroundImage: `url('${image}')` }}
     >
-      <H1
-        title={title}
-        className="mt-10 uppercase max-w-[400px]"
-      />
+      <motion.div
+        initial={{ opacity: 0, y: -45 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ type: 'just', duration: 0.3, ease: 'easeInOut' }}
+        exit={{ opacity: 0, y: -45 }}
+      >
+        <H1 title={title} className="mt-10 uppercase max-w-[400px]" />
+      </motion.div>
     </div>
   );
 }

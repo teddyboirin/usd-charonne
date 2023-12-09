@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
-import dynamic from 'next/dynamic'
+import dynamic from 'next/dynamic';
 import Image from 'next/image';
 import Arrow from '../icons/Arrow';
 import Open from './Open';
@@ -12,8 +12,7 @@ interface Props {
 
 const DynamicOpen = dynamic(() => import('./Open'), {
   loading: () => <p>Chargement...</p>,
-})
- 
+});
 
 function GalerieItem({ imageLink }: Props) {
   const [isOpen, setIsOpen] = useState(false);

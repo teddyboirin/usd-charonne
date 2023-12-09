@@ -9,9 +9,12 @@ export default function Club() {
     <div>
       <BasicHead title="Le club" image="" />
       {/* <BasicHead image="https://placehold.co/800x300" /> */}
-      <div className="w-full mb-6 flex items-center justify-center">
+      <div className="w-full mb-6 flex items-center justify-center gap-3">
         <Link href="/galerie">
-          <Button white>Découvrir les photos du club</Button>
+          <Button white>Photos du club</Button>
+        </Link>
+        <Link href="/teams">
+          <Button white>Équipes</Button>
         </Link>
       </div>
       <ImageSide
