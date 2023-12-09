@@ -11,10 +11,12 @@ import React from 'react';
 export default function Pratiques() {
   return (
     <>
-      <BasicHead title="Nous rejoindre" image="" />
-      {/* <BasicHead title="Nos pratiques" image="https://placehold.co/800x300" /> */}
+      <BasicHead
+        title="Nous rejoindre"
+        image="https://images.unsplash.com/photo-1577416412292-747c6607f055?q=80&w=3042&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+      />
       <Container>
-        <section className="w-full flex items-center justify-center flex-wrap gap-3 md:max-w-[50%] mx-auto mb-10">
+        <section className="w-full flex items-center justify-center flex-wrap gap-3 md:max-w-[50%] mx-auto my-6">
           <Link href="#inscription">
             <Button white>Inscription</Button>
           </Link>

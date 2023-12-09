@@ -8,10 +8,12 @@ import React from 'react';
 export default function Ecole() {
   return (
     <>
-      <BasicHead title="École de basket" image="" />
-      {/* <BasicHead title="Nos pratiques" image="https://placehold.co/800x300" /> */}
+      <BasicHead
+        title="École de basket"
+        image="https://images.unsplash.com/photo-1523142096306-cca37b5aa001?q=80&w=3570&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+      />
       <Container>
-        <section className="w-full flex items-center justify-center flex-wrap gap-3 md:max-w-[25%] mx-auto mb-10">
+        <section className="w-full flex items-center justify-center flex-wrap gap-3 md:max-w-[25%] mx-auto my-6">
           <Link href="#baby">
             <Button white>Baby basket & Mini Basket</Button>
           </Link>

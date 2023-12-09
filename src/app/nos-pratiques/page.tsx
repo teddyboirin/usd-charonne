@@ -8,10 +8,12 @@ import React from 'react';
 export default function Pratiques() {
   return (
     <>
-      <BasicHead title="Nos pratiques" image="" />
-      {/* <BasicHead title="Nos pratiques" image="https://placehold.co/800x300" /> */}
+      <BasicHead
+        title="Nos pratiques"
+        image="https://images.unsplash.com/photo-1593935890446-2f13f143f363?q=80&w=3687&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+      />
       <Container>
-        <section className="w-full flex items-center justify-center flex-wrap gap-3 md:max-w-[25%] mx-auto mb-10">
+        <section className="w-full flex items-center justify-center flex-wrap gap-3 md:max-w-[25%] mx-auto my-6">
           <Link href="#5x5">
             <Button white>Basket 5x5</Button>
           </Link>

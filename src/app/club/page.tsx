@@ -7,8 +7,7 @@ import Link from 'next/link';
 export default function Club() {
   return (
     <div>
-      <BasicHead title="Le club" image="" />
-      {/* <BasicHead image="https://placehold.co/800x300" /> */}
+      <BasicHead title="Le club" image="https://images.unsplash.com/photo-1626003573503-2e088d82c647?q=80&w=3570&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" />
       <div className="w-full mb-6 flex items-center justify-center gap-3">
         <Link href="/galerie">
           <Button white>Photos du club</Button>

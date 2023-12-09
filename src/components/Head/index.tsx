@@ -14,13 +14,19 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import H5 from '../Titles/h5';
+import Button from '../Button';
+import Link from 'next/link';
 type Props = {
   title: string;
   desc: string;
   img: string;
+  button?: {
+    link: string;
+    value: string;
+  };
 };
 
-const Item = ({ title, desc, img }: Props) => {
+const Item = ({ title, desc, img, button }: Props) => {
   return (
     <div
       className="h-screen bg-black w-full relative"
@@ -52,6 +58,13 @@ const Item = ({ title, desc, img }: Props) => {
             exit={{ opacity: 0, y: 25 }}
           >
             <H5 title={desc} white />
+            {button && (
+              <div className="mt-3 flex items-center justify-center">
+                <Link href={button.link}>
+                  <Button white>{button.value}</Button>
+                </Link>
+              </div>
+            )}
           </motion.div>
         </AnimatePresence>
       </div>
@@ -84,15 +97,19 @@ export default function Head() {
             title="MATCH SÉNIORS 1 VS FRESNES"
             desc="24 NOV 2023 20:30"
             img="./assets/bg-head.jpg"
+            button={{
+              value: "Plus d'informations",
+              link: '/article',
+            }}
           />
         </SwiperSlide>
-        {/* <SwiperSlide>
+        <SwiperSlide>
           <Item
             title="MATCH SÉNIORS 1F VS LOS ANGELES"
             desc="17 DÉC 2023 20:30"
             img="https://placehold.co/800x300"
           />
-        </SwiperSlide> */}
+        </SwiperSlide>
       </Swiper>
     </>
   );
