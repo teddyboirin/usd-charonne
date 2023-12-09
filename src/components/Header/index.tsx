@@ -42,13 +42,13 @@ export default function Header() {
         <div className="flex items-center justify-start">
           <ul className={ulStyle}>
             <li className={liStyle}>
-              <Link href="/">Formation</Link>
+              <Link href="/formations">Formation</Link>
             </li>
             <li className={liStyle}>
-              <Link href="/">École de basket</Link>
+              <Link href="/ecole-de-basket">École de basket</Link>
             </li>
             <li className={liStyle}>
-              <Link href="/histoire">Compétitions FFBB</Link>
+              <Link href="/competitions">Compétitions FFBB</Link>
             </li>
           </ul>
         </div>
@@ -111,13 +111,13 @@ export default function Header() {
               <Link href="/nos-pratiques">Nos pratiques</Link>
             </li>
             <li className="text-16">
-              <Link href="/histoire">Formations</Link>
+              <Link href="/formations">Formations</Link>
             </li>
             <li className="text-16">
-              <Link href="/histoire">École de basket</Link>
+              <Link href="/ecole-de-basket">École de basket</Link>
             </li>
             <li className="text-16">
-              <a href="">Compétitions FFBB</a>
+              <a href="/competitions">Compétitions FFBB</a>
             </li>
           </ul>
         </nav>

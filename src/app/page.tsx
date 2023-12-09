@@ -6,7 +6,7 @@ import H2 from '@/components/Titles/h2';
 export default function Home() {
   return (
     <>
-      <Head title="MATCH SÉNIORS 1 VS FRESNES" desc="24 NOV 2023 20:30" />
+      <Head />
       <section className="bg-black p-6 w-full flex flex-col items-center gap-6">
         <H2 title="Derniers résultats" uppercase/>
         <LastResults />

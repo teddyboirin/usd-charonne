@@ -197,10 +197,23 @@ body {
     230deg,
     #ff0000 -79.72%,
     rgba(0, 0, 179, 1) 121.61%
-    );
-    padding: 0.1rem;
+  );
+  padding: 0.1rem;
+}
+
+.border_tab {
+  border: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+// swiper homepage
+
+.swiper-pagination {
+  bottom: 5px !important;
+  @media screen and (min-width: 768px) {
+    bottom: 30px !important;
   }
-  
-  .border_tab {
-    border: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+.swiper-pagination-bullet {
+  background: white !important;
 }
