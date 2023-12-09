@@ -20,25 +20,25 @@ export default function Header() {
     }
   };
   return width > 768 ? (
-    <AnimatePresence>
-      <motion.div
-        initial={{
-          opacity: 0,
-          y: -45,
-          position: 'absolute',
-          zIndex: 10,
-          width: '100%',
-        }}
-        animate={{
-          opacity: 1,
-          y: 30,
-          position: 'absolute',
-          zIndex: 10,
-          width: '100%',
-        }}
-        transition={{ duration: 0.3 }}
-      >
-        <header className="hidden md:block absolute top-0 left-0 z-10 w-full p-4 text-white">
+    <header className="hidden md:block absolute top-0 left-0 z-10 w-full text-white">
+      <AnimatePresence>
+        <motion.div
+          initial={{
+            opacity: 0,
+            y: -45,
+            position: 'absolute',
+            zIndex: 10,
+            width: '100%',
+          }}
+          animate={{
+            opacity: 1,
+            y: 30,
+            position: 'absolute',
+            zIndex: 10,
+            width: '100%',
+          }}
+          transition={{ duration: 0.3 }}
+        >
           <nav className="grid grid-cols-[1fr_auto_1fr] gap-6 items-center">
             <div className="flex items-center justify-end">
               <ul className={ulStyle}>
@@ -53,7 +53,7 @@ export default function Header() {
                 </li>
               </ul>
             </div>
-            <div className="flex items-center justify-center">
+            <div className="flex items-center justify-center h-fit">
               <Link href="/">
                 <Logo />
               </Link>
@@ -72,9 +72,9 @@ export default function Header() {
               </ul>
             </div>
           </nav>
-        </header>
-      </motion.div>
-    </AnimatePresence>
+        </motion.div>
+      </AnimatePresence>
+    </header>
   ) : (
     <AnimatePresence>
       <motion.div
