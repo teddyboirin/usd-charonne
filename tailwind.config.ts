@@ -88,11 +88,11 @@ const config: Config = {
         16: ['16px', { lineHeight: '22px', letterSpacing: '0' }],
         18: ['18px', { lineHeight: '24px', letterSpacing: '0' }],
         20: ['20px', { lineHeight: '24px' }],
+        22: ['22px', { lineHeight: '28px', letterSpacing: '-0.02em' }],
+        24: ['24px', { lineHeight: '32px', letterSpacing: '-0.02em' }],
         26: ['26px', { lineHeight: '32px', letterSpacing: '-0.02em' }],
         32: ['32px', { lineHeight: '40px', letterSpacing: '-0.02em' }],
         40: ['40px', { lineHeight: '48px', letterSpacing: '0' }],
-        24: ['24px', { lineHeight: '32px', letterSpacing: '-0.02em' }],
-        22: ['22px', { lineHeight: '28px', letterSpacing: '-0.02em' }],
         64: ['64px', { lineHeight: '70px', letterSpacing: '-0.03em' }],
       }
     },
