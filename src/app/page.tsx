@@ -14,7 +14,7 @@ export default function Home() {
   return (
     <>
       <Head />
-      <section className="bg-black p-6 w-full flex flex-col items-center gap-6">
+      <section className="bg-black p-6 w-full flex flex-col md:items-center gap-6">
         <div
           ref={ref}
           style={{
@@ -23,7 +23,7 @@ export default function Home() {
             transition: 'all 0.3s ease-in-out',
           }}
         >
-          <H2 title="Derniers résultats" uppercase />
+          <H2 title="Derniers résultats" uppercase center />
         </div>
         <div
           ref={refResults}

@@ -1,13 +1,17 @@
 import BasicHead from '@/components/BasicHead';
 import Button from '@/components/Button';
+import Container from '@/components/Container';
 import ImageSide from '@/components/ImageSide';
-import { ButtonBase } from '@mui/material';
+import { Breadcrumbs, ButtonBase } from '@mui/material';
 import Link from 'next/link';
 
 export default function Club() {
   return (
-    <div>
-      <BasicHead title="Le club" image="https://images.unsplash.com/photo-1626003573503-2e088d82c647?q=80&w=3570&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" />
+    <>
+      <BasicHead
+        title="Le club"
+        image="https://images.unsplash.com/photo-1626003573503-2e088d82c647?q=80&w=3570&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+      />
       <div className="w-full mb-6 flex items-center justify-center gap-3">
         <Link href="/galerie">
           <Button white>Photos du club</Button>
@@ -21,6 +25,6 @@ export default function Club() {
         title="Histoire et valeurs"
         image="https://placehold.co/600"
       />
-    </div>
+    </>
   );
 }

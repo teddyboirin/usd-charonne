@@ -7,6 +7,7 @@ import Open from './Open';
 
 interface Props {
   imageLink: string;
+  height: number;
   onClick?: () => void;
 }
 
@@ -14,7 +15,7 @@ const DynamicOpen = dynamic(() => import('./Open'), {
   loading: () => <p>Chargement...</p>,
 });
 
-function GalerieItem({ imageLink }: Props) {
+function GalerieItem({ imageLink, height }: Props) {
   const [isOpen, setIsOpen] = useState(false);
   const handlePicture = (action) => {
     if (action === 'open') {
@@ -32,10 +33,10 @@ function GalerieItem({ imageLink }: Props) {
         {isOpen && (
           <motion.div
             className="h-screen w-screen bg-filter z-[100] fixed top-0 left-0 flex items-center justify-center"
-            initial={{ opacity: 0, y: -45 }}
-            animate={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, y: -45, left: 0, top: 0 }}
+            animate={{ opacity: 1, y: 0, left: 0, top: 0 }}
             transition={{ duration: 0.3 }}
-            exit={{ opacity: 0, y: -45 }}
+            exit={{ opacity: 0, y: -45, left: 0, top: 0 }}
           >
             <DynamicOpen
               imageLink={imageLink}
@@ -46,10 +47,12 @@ function GalerieItem({ imageLink }: Props) {
       </AnimatePresence>
       <button
         type="button"
-        className="h-[300px] md:h-[675px] bg-[pink] w-full relative"
+        style={{ height }}
         onClick={() => handlePicture(isOpen ? 'close' : 'open')}
       >
-        <Image src={imageLink} alt="desc" fill objectFit="cover" />
+        <div className="w-full relative h-full">
+          <Image src={imageLink} alt="desc" fill objectFit="cover" />
+        </div>
       </button>
     </>
   );
