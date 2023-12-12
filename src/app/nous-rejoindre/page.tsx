@@ -33,6 +33,7 @@ export default function Pratiques() {
         title="Documents du club essentiels"
         image="https://placehold.co/800x300"
         reverse
+        color="white"
       >
         <div className="w-full grid grid-cols-1 md:flex md:flex-wrap gap-3 mt-3 items-center justify-center">
           <DownloadFile
@@ -67,6 +68,7 @@ export default function Pratiques() {
         title="Planning des entrainements"
         content="fiozefjzefzegiozjgok"
         image="https://placehold.co/800x300"
+        color="black"
       />
       <ImageSide
         id="surclassement"
@@ -74,11 +76,13 @@ export default function Pratiques() {
         content="fiozefjzefzegiozjgok"
         image="https://placehold.co/800x300"
         reverse
+        color="white"
       />
       <ImageSide
         id="contacts"
         title="Contacts Entraineurs"
         image="https://placehold.co/800x300"
+        color="black"
       >
         <div className="grid grid-cols-1 md:grid-cols-2 w-full gap-3">
           <Contact name="Teddy Boirin" tel="678622843" team="SM1" />

@@ -40,8 +40,10 @@ export default function Home() {
         title="title1"
         content="text"
         image="https://placehold.co/600"
+        color="black"
       />
       <ImageSide
+        color="white"
         title="title1"
         content="text"
         image="https://placehold.co/600"
