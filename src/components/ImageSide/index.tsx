@@ -1,5 +1,6 @@
 import { memo } from 'react';
 import H3 from '../Titles/h3';
+import Markdown from 'react-markdown';
 
 interface Props {
   title: string;
@@ -36,7 +37,7 @@ function ImageSide({
             color === 'black' ? 'text-white' : 'text-dark-1'
           }`}
         >
-          {content}
+          <Markdown>{content}</Markdown>
         </p>
         {children || ''}
       </div>
