@@ -32,13 +32,13 @@ function ImageSide({
     >
       <div className="md:w-1/2 px-4 py-6 md:p-6 flex flex-col justify-center">
         <H3 title={title} color={color === 'black' ? 'white' : 'black'} />
-        <p
-          className={`text-14 md:text-16 mt-3 ${
+        <div
+          className={`text-14 md:text-16 mt-3 markdown-content ${
             color === 'black' ? 'text-white' : 'text-dark-1'
           }`}
         >
           <Markdown>{content}</Markdown>
-        </p>
+        </div>
         {children || ''}
       </div>
       <div
@@ -47,6 +47,7 @@ function ImageSide({
           background: `url("${image}")`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat',
         }}
       ></div>
     </section>

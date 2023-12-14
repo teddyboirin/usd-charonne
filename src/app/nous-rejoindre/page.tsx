@@ -4,6 +4,7 @@ import Contact from '@/components/Contact';
 import Container from '@/components/Container';
 import DownloadFile from '@/components/DownloadFile';
 import ImageSide from '@/components/ImageSide';
+import Subnav from '@/components/Subnav';
 import { fetcher } from '@/helpers/utils';
 import Link from 'next/link';
 import React from 'react';
@@ -19,8 +20,8 @@ export default async function Pratiques() {
         title="Nous rejoindre"
         image="https://images.unsplash.com/photo-1577416412292-747c6607f055?q=80&w=3042&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
       />
-      <Container>
-        <section className="w-full flex items-center justify-center flex-wrap gap-3 md:max-w-[50%] mx-auto my-6">
+      <Subnav>
+        <>
           <Link href="#inscription">
             <Button white>Inscription</Button>
           </Link>
@@ -30,8 +31,8 @@ export default async function Pratiques() {
           <Link href="#contacts">
             <Button white>Contacts Entraineurs</Button>
           </Link>
-        </section>
-      </Container>
+        </>
+      </Subnav>
       <ImageSide
         id="inscription"
         title="Documents du club essentiels"

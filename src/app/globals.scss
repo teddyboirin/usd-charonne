@@ -108,7 +108,7 @@ section {
 }
 body {
   line-height: 1;
-  background: #F6F5F2;
+  background: #f6f5f2;
 }
 ol,
 ul {
@@ -132,12 +132,9 @@ table {
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&family=Urbanist:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
 
-
 @font-face {
-  font-family: "Evog";
-  src:
-    local("Evog"),
-    url("../../public/fonts/Evogria.otf") format("otf");
+  font-family: 'Evog';
+  src: local('Evog'), url('../../public/fonts/Evogria.otf') format('otf');
 }
 
 body {
@@ -231,11 +228,26 @@ body {
   // background: linear-gradient(0deg, #F6F5F2 5.95%, rgba(217, 217, 217, 0) 95.62%);
 }
 
-
 .shadow_submenu {
-  box-shadow: 1px 0px 12px 0px #0000008a
+  box-shadow: 1px 0px 12px 0px #0000008a;
 }
 
 strong {
   font-weight: bold;
+}
+.markdown-content {
+  ul {
+    margin-top: 12px;
+    li {
+      list-style-type: disc;
+      margin: 4px 24px;
+    }
+  }
+
+  i {
+    text-decoration: underline;
+  }
+  p {
+    margin: 12px 0;
+  }
 }
