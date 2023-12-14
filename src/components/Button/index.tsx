@@ -3,10 +3,18 @@ interface Props {
   red?: boolean;
   blue?: boolean;
   white?: boolean;
+  black?: boolean;
   onClick?: () => void;
 }
 
-export default function Button({ children, red, blue, white, onClick }: Props) {
+export default function Button({
+  children,
+  red,
+  blue,
+  white,
+  black,
+  onClick,
+}: Props) {
   return (
     <button
       type="button"
@@ -16,7 +24,7 @@ export default function Button({ children, red, blue, white, onClick }: Props) {
         white
           ? 'bg-white text-black hover:bg-transparent border border-white hover:text-white'
           : ''
-      }`}
+      } ${black ? 'bg-dark-1 text-white hover:bg-white hover:text-dark-1' : ''}`}
       onClick={onClick}
     >
       {children}

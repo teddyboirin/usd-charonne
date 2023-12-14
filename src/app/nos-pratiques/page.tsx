@@ -8,7 +8,7 @@ import React from 'react';
 
 export default async function Pratiques() {
   const pratiquesData = await fetcher(
-    'http://localhost:1337/api/pratiques?populate=*'
+    'http://localhost:1337/api/pratiques?populate[0]=block&populate[1]=block.photo'
   );
 
   return (
@@ -32,7 +32,7 @@ export default async function Pratiques() {
           id={item.attributes.block.id_item}
           title={item.attributes.block.titre}
           content={item.attributes.block.contenu}
-          image="https://placehold.co/800x300"
+          image={`${process.env.MEDIA_URL}${item.attributes.block.photo.data?.attributes?.formats.large?.url}`}
           color={item.attributes.block.couleur}
           reverse={item.attributes.block.reverse}
         />

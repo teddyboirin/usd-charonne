@@ -8,7 +8,7 @@ import Link from 'next/link';
 
 export default async function Ecole() {
   const data = await fetcher(
-    'http://localhost:1337/api/ecole-de-baskets?populate=*'
+    'http://localhost:1337/api/ecole-de-baskets??populate[0]=Block&populate[1]=Block.photo'
   );
   return (
     <>
@@ -33,7 +33,7 @@ export default async function Ecole() {
           id={item.attributes.Block.id_item}
           title={item.attributes.Block.titre}
           content={item.attributes.Block.contenu}
-          image="https://placehold.co/800x300"
+          image={`${process.env.MEDIA_URL}${item.attributes.Block.photo.data?.attributes?.formats.large?.url}`}
           color={item.attributes.Block.couleur}
           reverse={item.attributes.Block.reverse}
         />

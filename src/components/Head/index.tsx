@@ -1,78 +1,13 @@
-'use client';
-import {
-  Autoplay,
-  EffectFade,
-  Keyboard,
-  Pagination,
-  Navigation,
-} from 'swiper/modules';
-import { Swiper, SwiperSlide } from 'swiper/react';
+'use client'
+import { Autoplay, Keyboard, Pagination, Navigation } from 'swiper/modules';
 import { AnimatePresence, motion } from 'framer-motion';
-import H2 from '../Titles/h2';
-import 'swiper/css/effect-fade';
+import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
-import H5 from '../Titles/h5';
-import Button from '../Button';
-import Link from 'next/link';
-type Props = {
-  title: string;
-  desc: string;
-  img: string;
-  button?: {
-    link: string;
-    value: string;
-  };
-};
+import SliderItem from './item';
 
-const Item = ({ title, desc, img, button }: Props) => {
-  return (
-    <div
-      className="h-screen w-full relative"
-      style={{
-        backgroundImage: `url('${img}')`,
-        backgroundSize: 'cover',
-        backgroundRepeat: 'no-repeat',
-      }}
-    >
-      <div className="min-h-[700px] md:min-h-[600px] absolute w-full p-4 md:p-7 bottom-0 flex items-center justify-end flex-col">
-        <AnimatePresence>
-          <motion.div
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ type: 'just', duration: 0.3, ease: 'easeInOut' }}
-            exit={{ opacity: 0, y: 25 }}
-          >
-            <H2 title={title} center />
-          </motion.div>
-          <motion.div
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{
-              type: 'just',
-              duration: 0.3,
-              ease: 'easeInOut',
-              delay: 0.3,
-            }}
-            exit={{ opacity: 0, y: 25 }}
-          >
-            <H5 title={desc} white />
-            {button && (
-              <div className="mt-3 flex items-center justify-center">
-                <Link href={button.link}>
-                  <Button white>{button.value}</Button>
-                </Link>
-              </div>
-            )}
-          </motion.div>
-        </AnimatePresence>
-      </div>
-    </div>
-  );
-};
-
-export default function Head() {
+export default function Head({ data }: any) {
   return (
     <>
       <Swiper
@@ -81,7 +16,6 @@ export default function Head() {
         keyboard={{
           enabled: true,
         }}
-        effect={'fade'}
         pagination={{
           clickable: true,
         }}
@@ -89,27 +23,36 @@ export default function Head() {
           delay: 4500,
           disableOnInteraction: false,
         }}
-        modules={[EffectFade, Autoplay, Keyboard, Pagination, Navigation]}
-        className="mySwiper"
+        modules={[Autoplay, Keyboard, Pagination, Navigation]}
       >
-        <SwiperSlide>
-          <Item
-            title="MATCH SÉNIORS 1 VS FRESNES"
-            desc="24 NOV 2023 20:30"
-            img="./assets/bg-head.jpg"
-            button={{
-              value: "Plus d'informations",
-              link: '/article',
-            }}
-          />
-        </SwiperSlide>
-        <SwiperSlide>
-          <Item
-            title="MATCH SÉNIORS 1F VS LOS ANGELES"
-            desc="17 DÉC 2023 20:30"
-            img="https://placehold.co/800x300"
-          />
-        </SwiperSlide>
+        {data?.map((item, index) => (
+          <AnimatePresence key={index}>
+            <motion.div
+              initial={{ opacity: 0, left: 0, top: 0 }}
+              animate={{ opacity: 1, left: 0, top: 0 }}
+              transition={{ duration: 2 }}
+              exit={{ opacity: 0, left: 0, top: 0 }}
+            >
+              <SwiperSlide>
+                <SliderItem
+                  title={item.attributes.titre}
+                  desc={item.attributes.sous_titre}
+                  img={`${`http://localhost:1337`}${
+                    item.attributes.photo?.data?.attributes?.url
+                  }`}
+                  button={
+                    item.attributes.button
+                      ? {
+                          value: item.attributes.button_content,
+                          link: item.attributes.lien,
+                        }
+                      : false
+                  }
+                />
+              </SwiperSlide>
+            </motion.div>
+          </AnimatePresence>
+        ))}
       </Swiper>
     </>
   );

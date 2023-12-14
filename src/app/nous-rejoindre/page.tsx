@@ -1,7 +1,6 @@
 import BasicHead from '@/components/BasicHead';
 import Button from '@/components/Button';
 import Contact from '@/components/Contact';
-import Container from '@/components/Container';
 import DownloadFile from '@/components/DownloadFile';
 import ImageSide from '@/components/ImageSide';
 import Subnav from '@/components/Subnav';
@@ -12,6 +11,9 @@ import React from 'react';
 export default async function Pratiques() {
   const coachData = await fetcher(
     'http://localhost:1337/api/entraineurs?populate=*'
+  );
+  const planningData = await fetcher(
+    'http://localhost:1337/api/plannings?populate=*'
   );
 
   return (
@@ -69,12 +71,20 @@ export default async function Pratiques() {
       </ImageSide>
       <ImageSide
         id="planning"
-        title="Planning des entrainements"
-        content="fiozefjzefzegiozjgok"
-        image="https://placehold.co/800x300"
+        title={planningData[0].attributes.title}
+        image={`${process.env.MEDIA_URL}${planningData[0].attributes.photo.data.attributes.url}`}
         color="white"
         reverse
-      />
+      >
+        <>
+          <a
+            href={`${process.env.MEDIA_URL}${planningData[0].attributes.fichier.data.attributes?.url}`}
+            target="_blank"
+          >
+            <Button black>Télécharger le planning</Button>
+          </a>
+        </>
+      </ImageSide>
       <ImageSide
         id="contacts"
         title="Contacts Entraineurs"

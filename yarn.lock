@@ -1166,6 +1166,11 @@ dom-helpers@^5.0.1:
     "@babel/runtime" "^7.8.7"
     csstype "^3.0.2"
 
+dotenv@^16.3.1:
+  version "16.3.1"
+  resolved "https://registry.npmjs.org/dotenv/-/dotenv-16.3.1.tgz"
+  integrity sha512-IPzF4w4/Rd94bA9imS68tZBaYyBWSCE47V1RGuMrB94iyTOIEwRmVL2x/4An+6mETpLrKJ5hQkB8W4kFAadeIQ==
+
 electron-to-chromium@^1.4.535:
   version "1.4.600"
   resolved "https://registry.npmjs.org/electron-to-chromium/-/electron-to-chromium-1.4.600.tgz"
