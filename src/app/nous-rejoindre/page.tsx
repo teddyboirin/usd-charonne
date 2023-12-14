@@ -4,11 +4,15 @@ import Contact from '@/components/Contact';
 import Container from '@/components/Container';
 import DownloadFile from '@/components/DownloadFile';
 import ImageSide from '@/components/ImageSide';
-import H5 from '@/components/Titles/h5';
+import { fetcher } from '@/helpers/utils';
 import Link from 'next/link';
 import React from 'react';
 
-export default function Pratiques() {
+export default async function Pratiques() {
+  const coachData = await fetcher(
+    'http://localhost:1337/api/entraineurs?populate=*'
+  );
+
   return (
     <>
       <BasicHead
@@ -32,7 +36,7 @@ export default function Pratiques() {
         id="inscription"
         title="Documents du club essentiels"
         image="https://placehold.co/800x300"
-        reverse
+        color="black"
       >
         <div className="w-full grid grid-cols-1 md:flex md:flex-wrap gap-3 mt-3 items-center justify-center">
           <DownloadFile
@@ -67,25 +71,26 @@ export default function Pratiques() {
         title="Planning des entrainements"
         content="fiozefjzefzegiozjgok"
         image="https://placehold.co/800x300"
-      />
-      <ImageSide
-        id="surclassement"
-        title="Surclassement"
-        content="fiozefjzefzegiozjgok"
-        image="https://placehold.co/800x300"
+        color="white"
         reverse
       />
       <ImageSide
         id="contacts"
         title="Contacts Entraineurs"
         image="https://placehold.co/800x300"
+        color="black"
       >
         <div className="grid grid-cols-1 md:grid-cols-2 w-full gap-3">
-          <Contact name="Teddy Boirin" tel="678622843" team="SM1" />
-          <Contact name="Teddy Boirin" tel="678622843" team="SM1" />
-          <Contact name="Teddy Boirin" tel="678622843" team="SM1" />
-          <Contact name="Teddy Boirin" tel="678622843" team="SM1" />
-          <Contact name="Teddy Boirin" tel="678622843" team="SM1" />
+          {coachData.map((coach, index) => {
+            return (
+              <Contact
+                key={index}
+                name={coach.attributes.nom}
+                tel={coach.attributes.telephone}
+                team={coach.attributes.equipe}
+              />
+            );
+          })}
         </div>
       </ImageSide>
     </>

@@ -8,11 +8,11 @@ import Facebook from '../icons/Facebook';
 
 export default function Footer() {
   return (
-    <div className="w-full pb-4 md:pt-6 md:pb-0 text-white border_footer uppercase bg-black">
-      <div className="bg-blue text-white p-6 flex items-center justify-center mb-10">
+    <div className="w-full pb-4 md:pb-0 text-dark-1 uppercase bg-gray-0">
+      <div className="bg-black text-white p-6 flex items-center justify-center mb-10 font-evog">
         <span className="text-40 font-bold">TOUT POUR CHARONNE</span>
       </div>
-      <Container className="flex flex-col justify-center md:grid md:grid-cols-4 gap-3">
+      <Container className="flex flex-col justify-center md:grid md:grid-cols-4 gap-3 border_footer">
         <div className="w-full flex justify-center md:block md:justify-start">
           <Logo />
         </div>

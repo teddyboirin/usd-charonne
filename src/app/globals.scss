@@ -108,7 +108,7 @@ section {
 }
 body {
   line-height: 1;
-  background: #000;
+  background: #F6F5F2;
 }
 ol,
 ul {
@@ -130,6 +130,15 @@ table {
   border-spacing: 0;
 }
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&family=Urbanist:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
+
+
+@font-face {
+  font-family: "Evog";
+  src:
+    local("Evog"),
+    url("../../public/fonts/Evogria.otf") format("otf");
+}
 
 body {
   font-family: 'Urbanist', sans-serif;
@@ -219,5 +228,14 @@ body {
 }
 
 .gradient_filter_head {
-  background: linear-gradient(0deg, #000 5.95%, rgba(217, 217, 217, 0) 95.62%);
+  // background: linear-gradient(0deg, #F6F5F2 5.95%, rgba(217, 217, 217, 0) 95.62%);
+}
+
+
+.shadow_submenu {
+  box-shadow: 1px 0px 12px 0px #0000008a
+}
+
+strong {
+  font-weight: bold;
 }

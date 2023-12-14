@@ -29,14 +29,14 @@ type Props = {
 const Item = ({ title, desc, img, button }: Props) => {
   return (
     <div
-      className="h-screen bg-black w-full relative"
+      className="h-screen w-full relative"
       style={{
         backgroundImage: `url('${img}')`,
         backgroundSize: 'cover',
         backgroundRepeat: 'no-repeat',
       }}
     >
-      <div className="min-h-[700px] md:min-h-[600px] absolute w-full p-4 md:p-7 gradient_head bottom-0 flex items-center justify-end flex-col">
+      <div className="min-h-[700px] md:min-h-[600px] absolute w-full p-4 md:p-7 bottom-0 flex items-center justify-end flex-col">
         <AnimatePresence>
           <motion.div
             initial={{ opacity: 0, y: 10 }}

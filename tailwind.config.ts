@@ -41,6 +41,10 @@ const config: Config = {
       backgroundImage: {},
       height: {
       },
+      fontFamily: {
+        anton: ['Anton', 'sans-serif'],
+        evog: ['Evog', 'sans-serif'],
+      },
       maxWidth: {
         container: '1320px',
       },
