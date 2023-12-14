@@ -1,6 +1,5 @@
 import BasicHead from '@/components/BasicHead';
 import Button from '@/components/Button';
-import Container from '@/components/Container';
 import ImageSide from '@/components/ImageSide';
 import Link from 'next/link';
 import React from 'react';
