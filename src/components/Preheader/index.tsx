@@ -7,7 +7,8 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 
-function Preheader() {
+function Preheader({ data }) {
+
   return (
     <div className="absolute top-0 flex items-center justify-center w-full p-1.5 bg-dark-1 text-white z-50 text-11 md:text-14 max-h-[40px]">
       <Swiper
@@ -20,16 +21,16 @@ function Preheader() {
         modules={[Autoplay, Navigation]}
         className="preheader-swiper w-full md:w-[45%] max-h-[inherit]"
       >
-        <SwiperSlide className="text-center flex items-center justify-center">
-          <p className="h-full text-center flex items-center justify-center">
-            Recherchons joueurs, joueuses et entraineurs
-          </p>
-        </SwiperSlide>
-        <SwiperSlide className="text-center flex items-center justify-center">
-          <p className="h-full text-center flex items-center justify-center">
-            Lorem, ipsum dolor sit amet consectetur adipisicing.
-          </p>
-        </SwiperSlide>
+        {data.map((item, index) => (
+          <SwiperSlide
+            className="text-center flex items-center justify-center"
+            key={index}
+          >
+            <p className="h-full text-center flex items-center justify-center">
+              {item.attributes.texte}
+            </p>
+          </SwiperSlide>
+        ))}
       </Swiper>
     </div>
   );

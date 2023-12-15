@@ -10,11 +10,15 @@ import React from 'react';
 
 export default async function Pratiques() {
   const coachData = await fetcher(
-    'http://localhost:1337/api/entraineurs?populate=*'
+    'http://localhost:1337/api/entraineurs?populate=*',
+    { next: { revalidate: 3600 } }
   );
   const planningData = await fetcher(
-    'http://localhost:1337/api/plannings?populate=*'
+    'http://localhost:1337/api/plannings?populate=*',
+    { next: { revalidate: 3600 } }
   );
+
+  console.log(planningData);
 
   return (
     <>
@@ -71,14 +75,14 @@ export default async function Pratiques() {
       </ImageSide>
       <ImageSide
         id="planning"
-        title={planningData[0].attributes.title}
-        image={`${process.env.MEDIA_URL}${planningData[0].attributes.photo.data.attributes.url}`}
+        title={planningData.data[0].attributes.title}
+        image={`${process.env.MEDIA_URL}${planningData.data[0].attributes.photo.data.attributes.url}`}
         color="white"
         reverse
       >
         <>
           <a
-            href={`${process.env.MEDIA_URL}${planningData[0].attributes.fichier.data.attributes?.url}`}
+            href={`${process.env.MEDIA_URL}${planningData.data[0].attributes.fichier.data.attributes?.url}`}
             target="_blank"
           >
             <Button black>Télécharger le planning</Button>
@@ -92,7 +96,7 @@ export default async function Pratiques() {
         color="black"
       >
         <div className="grid grid-cols-1 md:grid-cols-2 w-full gap-3">
-          {coachData.map((coach, index) => {
+          {coachData.data.map((coach, index) => {
             return (
               <Contact
                 key={index}

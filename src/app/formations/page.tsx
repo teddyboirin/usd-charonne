@@ -8,13 +8,14 @@ import React from 'react';
 
 export default async function Formations() {
   const data = await fetcher(
-    'http://localhost:1337/api/formations?populate[0]=block&populate[1]=block.photo'
+    'http://localhost:1337/api/formations?populate[0]=block&populate[1]=block.photo',
+    { next: { revalidate: 3600 } }
   );
   return (
     <>
       <Subnav>
         <>
-          {data.map((item, index) => (
+          {data.data.map((item, index) => (
             <Link href={`#${item.attributes.block.id_item}`} key={index}>
               <Button white>{item.attributes.block.titre}</Button>
             </Link>
@@ -25,7 +26,7 @@ export default async function Formations() {
         title="Formations"
         image="https://images.unsplash.com/photo-1590227632180-80a3bf110871?q=80&w=2553&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
       />
-      {data.map((item, index) => (
+      {data.data.map((item, index) => (
         <ImageSide
           key={index}
           id={item.attributes.block.id_item}

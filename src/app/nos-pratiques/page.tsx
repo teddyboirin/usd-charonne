@@ -8,7 +8,8 @@ import React from 'react';
 
 export default async function Pratiques() {
   const pratiquesData = await fetcher(
-    'http://localhost:1337/api/pratiques?populate[0]=block&populate[1]=block.photo'
+    'http://localhost:1337/api/pratiques?populate[0]=block&populate[1]=block.photo',
+    { next: { revalidate: 3600 } }
   );
 
   return (
@@ -19,14 +20,14 @@ export default async function Pratiques() {
       />
       <Subnav>
         <>
-          {pratiquesData.map((item, index) => (
+          {pratiquesData.data.map((item, index) => (
             <Link href={`#${item.attributes.block.id_item}`} key={index}>
-             <Button white>{item.attributes.block.titre}</Button>
+              <Button white>{item.attributes.block.titre}</Button>
             </Link>
           ))}
         </>
       </Subnav>
-      {pratiquesData.map((item, index) => (
+      {pratiquesData.data.map((item, index) => (
         <ImageSide
           key={index}
           id={item.attributes.block.id_item}

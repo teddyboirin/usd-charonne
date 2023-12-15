@@ -8,7 +8,8 @@ import Link from 'next/link';
 
 export default async function Ecole() {
   const data = await fetcher(
-    'http://localhost:1337/api/ecole-de-baskets??populate[0]=Block&populate[1]=Block.photo'
+    'http://localhost:1337/api/ecole-de-baskets??populate[0]=Block&populate[1]=Block.photo',
+    { next: { revalidate: 3600 } }
   );
   return (
     <>
@@ -19,7 +20,7 @@ export default async function Ecole() {
       <Container>
         <Subnav>
           <>
-            {data.map((item, index) => (
+            {data.data.map((item, index) => (
               <Link href={`#${item.attributes.Block.id_item}`} key={index}>
                 <Button white>{item.attributes.Block.titre}</Button>
               </Link>
@@ -27,7 +28,7 @@ export default async function Ecole() {
           </>
         </Subnav>
       </Container>
-      {data.map((item, index) => (
+      {data.data.map((item, index) => (
         <ImageSide
           key={index}
           id={item.attributes.Block.id_item}

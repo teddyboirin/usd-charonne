@@ -1,13 +1,16 @@
-import axios from 'axios';
-export const isDesktop = (width) => {
-  if (width > 768) return true;
-  return false;
+type FetcherOptions = {
+  method: 'GET' | 'POST' | 'PATCH' | 'DELETE';
+  headers: HeadersInit;
+  body?: string;
 };
 
-export const fetcher = async (url) => {
-  const res = await axios.get(url).then((e) => e.data.data);
-  // The return value is *not* serialized
-  // You can return Date, Map, Set, etc.
+export const fetcher = (url: string, options?) => fetch(url, options)
+  .then((res) => {
+    if (res.ok && res.status !== 204) return res.json();
+    if (res.ok && res.status === 204) return null;
+    throw new Error('Something went wrong.');
+  })
+  .catch((err) => {
+    console.log(err);
+  });
 
-  return res;
-};

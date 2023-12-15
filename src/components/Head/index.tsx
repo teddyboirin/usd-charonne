@@ -25,7 +25,7 @@ export default function Head({ data }: any) {
         }}
         modules={[Autoplay, Keyboard, Pagination, Navigation]}
       >
-        {data?.map((item, index) => (
+        {data?.data.map((item, index) => (
           <AnimatePresence key={index}>
             <motion.div
               initial={{ opacity: 0, left: 0, top: 0 }}

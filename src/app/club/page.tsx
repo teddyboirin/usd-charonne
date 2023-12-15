@@ -9,7 +9,9 @@ import Subnav from '@/components/Subnav';
 import Loading from '@/components/icons/Loading';
 
 export default async function Club() {
-  const data = await fetcher('http://localhost:1337/api/le-clubs?populate=*');
+  const data = await fetcher('http://localhost:1337/api/le-clubs?populate=*', {
+    next: { revalidate: 3600 }
+  });
 
   return (
     <>
@@ -20,7 +22,7 @@ export default async function Club() {
       <Suspense fallback={<Loading />}>
         <Subnav>
           <>
-            {data.map((item, index) => (
+            {data.data.map((item, index) => (
               <Link href={`#${item.attributes.block.id_item}`} key={index}>
                 <Button white>{item.attributes.block.titre}</Button>
               </Link>
@@ -32,7 +34,7 @@ export default async function Club() {
         </Subnav>
       </Suspense>
       <Suspense fallback={<Loading />}>
-        {data.map((item, index) => (
+        {data.data.map((item, index) => (
           <ImageSide
             key={index}
             id={item.attributes.block.id_item}
