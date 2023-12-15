@@ -11,12 +11,13 @@ export default async function Home() {
   const dataHomepage = await fetcher(
     'http://localhost:1337/api/homepages?populate[0]=homepage&populate[1]=homepage.photo'
   );
+  const dataResultats = await fetcher('http://localhost:1337/api/resultats');
   return (
     <>
       <Head data={dataSlider} />
       <section className="bg-black p-6 w-full flex flex-col md:items-center gap-6">
         <H2 title="Derniers résultats" uppercase center />
-        <LastResults />
+        <LastResults data={dataResultats} />
       </section>
       {dataHomepage.map((item, index) => (
         <ImageSide

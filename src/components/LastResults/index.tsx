@@ -1,6 +1,4 @@
-import React from 'react';
-
-export default function LastResults() {
+export default function LastResults({ data }) {
   const returnResult = (resultA, resultB) => {
     if (resultA > resultB) {
       return <div className="h-[8px] w-[8px] bg-[#2dfa2d] rounded-full"></div>;
@@ -30,30 +28,15 @@ export default function LastResults() {
   };
   return (
     <div className="min-w-[100%] md:min-w-[680px] gradient_ranking rounded-basic p-2 md:p-4 border-[red] grid grid-cols-[.4fr_.05fr_.4fr_.2fr] md:grid-cols-[.4fr_.1fr_.4fr_.1fr] gap-2 md:gap-3 text-white">
-      <Item
-        teamA="USD Charonne"
-        teamB="Los Angeles Lakers"
-        resultA="122"
-        resultB="119"
-      />
-      <Item
-        teamA="USD Charonne (SM1)"
-        teamB="Los Angeles Lakers (NBA)"
-        resultA="122"
-        resultB="119"
-      />
-      <Item
-        teamA="USD Charonne (SF1)"
-        teamB="San Antonio Spurs (NBA)"
-        resultA="132"
-        resultB="141"
-      />
-      <Item
-        teamA="USD Charonne (U20)"
-        teamB="Los Angeles Lakers (U20)"
-        resultA="67"
-        resultB="48"
-      />
+      {data.map((item, index) => (
+        <Item
+          key={index}
+          teamA={item.attributes.team_a}
+          teamB={item.attributes.team_b}
+          resultA={item.attributes.score_team_a}
+          resultB={item.attributes.score_team_b}
+        />
+      ))}
     </div>
   );
 }
