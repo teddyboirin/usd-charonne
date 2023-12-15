@@ -7,10 +7,11 @@ import ImageSide from '@/components/ImageSide';
 import Link from 'next/link';
 import Subnav from '@/components/Subnav';
 import Loading from '@/components/icons/Loading';
+import Item from '@/components/Subnav/item';
 
 export default async function Club() {
   const data = await fetcher('http://localhost:1337/api/le-clubs?populate=*', {
-    next: { revalidate: 3600 }
+    next: { revalidate: 3600 },
   });
 
   return (
@@ -24,11 +25,11 @@ export default async function Club() {
           <>
             {data.data.map((item, index) => (
               <Link href={`#${item.attributes.block.id_item}`} key={index}>
-                <Button white>{item.attributes.block.titre}</Button>
+                <Item>{item.attributes.block.titre}</Item>
               </Link>
             ))}
-            <Link href="galerie">
-              <Button white>Nos photos</Button>
+            <Link href="/galerie">
+              <Item>Nos photos</Item>
             </Link>
           </>
         </Subnav>

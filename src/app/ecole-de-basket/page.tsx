@@ -5,6 +5,7 @@ import Container from '@/components/Container';
 import ImageSide from '@/components/ImageSide';
 import Subnav from '@/components/Subnav';
 import Link from 'next/link';
+import Item from '@/components/Subnav/item';
 
 export default async function Ecole() {
   const data = await fetcher(
@@ -22,7 +23,7 @@ export default async function Ecole() {
           <>
             {data.data.map((item, index) => (
               <Link href={`#${item.attributes.Block.id_item}`} key={index}>
-                <Button white>{item.attributes.Block.titre}</Button>
+                <Item>{item.attributes.Block.titre}</Item>
               </Link>
             ))}
           </>

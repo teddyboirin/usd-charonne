@@ -4,6 +4,7 @@ import Contact from '@/components/Contact';
 import DownloadFile from '@/components/DownloadFile';
 import ImageSide from '@/components/ImageSide';
 import Subnav from '@/components/Subnav';
+import Item from '@/components/Subnav/item';
 import { fetcher } from '@/helpers/utils';
 import Link from 'next/link';
 import React from 'react';
@@ -29,13 +30,13 @@ export default async function Pratiques() {
       <Subnav>
         <>
           <Link href="#inscription">
-            <Button white>Inscription</Button>
+            <Item>Inscription</Item>
           </Link>
           <Link href="#planning">
-            <Button white>Planning des entrainements</Button>
+            <Item>Planning des entrainements</Item>
           </Link>
           <Link href="#contacts">
-            <Button white>Contacts Entraineurs</Button>
+            <Item>Contacts Entraineurs</Item>
           </Link>
         </>
       </Subnav>

@@ -5,6 +5,7 @@ import ImageSide from '@/components/ImageSide';
 import Subnav from '@/components/Subnav';
 import Link from 'next/link';
 import React from 'react';
+import Item from '@/components/Subnav/item';
 
 export default async function Formations() {
   const data = await fetcher(
@@ -17,7 +18,7 @@ export default async function Formations() {
         <>
           {data.data.map((item, index) => (
             <Link href={`#${item.attributes.block.id_item}`} key={index}>
-              <Button white>{item.attributes.block.titre}</Button>
+              <Item>{item.attributes.block.titre}</Item>
             </Link>
           ))}
         </>
