@@ -6,11 +6,7 @@ import ButtonFilter from './ButtonFilter';
 import 'react-image-gallery/styles/css/image-gallery.css';
 import Masonry from '@mui/lab/Masonry';
 
-export default function GlobalContainer() {
-  const heights = [
-    150, 30, 90, 70, 110, 150, 130, 80, 50, 90, 100, 150, 30, 50, 80,
-  ];
-
+export default function GlobalContainer({ data }) {
   const { width } = useWindowSize();
 
   return (
@@ -25,11 +21,17 @@ export default function GlobalContainer() {
         </div>
         <div className="mt-6 w-full">
           <Masonry columns={isDesktop(width) ? 4 : 2} spacing={2}>
-            {heights.map((height, index) => (
+            {data?.data?.map((item, index) => (
               <Item
                 key={index}
-                imageLink="https://placehold.co/800x800/jpg"
+                imageLink={`${`http://localhost:1337`}${
+                  item.attributes.photo.data.attributes.formats.large.url
+                }`}
+                imageLinkFull={`${`http://localhost:1337`}${
+                  item.attributes.photo.data.attributes.url
+                }`}
                 height={Math.random() * (900 - 200) + 200}
+                title={item.attributes.titre}
               />
             ))}
           </Masonry>

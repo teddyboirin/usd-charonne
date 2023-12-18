@@ -22,7 +22,7 @@ export default async function RootLayout({
   return (
     <html lang="fr">
       <body>
-        <Preheader data={dataPreheader.data} />
+        <Preheader data={dataPreheader?.data} />
         <Header />
         {children}
         <Footer />

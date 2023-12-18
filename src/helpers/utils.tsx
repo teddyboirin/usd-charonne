@@ -14,3 +14,8 @@ export const fetcher = (url: string, options?) => fetch(url, options)
     console.log(err);
   });
 
+
+  export const isDesktop = (width) => {
+    if (width > 768) return true;
+    return false
+  };

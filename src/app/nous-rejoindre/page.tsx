@@ -19,7 +19,6 @@ export default async function Pratiques() {
     { next: { revalidate: 3600 } }
   );
 
-  console.log(planningData);
 
   return (
     <>

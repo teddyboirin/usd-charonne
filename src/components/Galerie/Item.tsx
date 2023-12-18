@@ -2,20 +2,21 @@ import { useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import dynamic from 'next/dynamic';
 import Image from 'next/image';
-import Arrow from '../icons/Arrow';
-import Open from './Open';
+import Loading from '../icons/Loading';
 
 interface Props {
   imageLink: string;
+  imageLinkFull: string;
+  title: string;
   height: number;
   onClick?: () => void;
 }
 
 const DynamicOpen = dynamic(() => import('./Open'), {
-  loading: () => <p>Chargement...</p>,
+  loading: () => <Loading />,
 });
 
-function GalerieItem({ imageLink, height }: Props) {
+function GalerieItem({ imageLink, title, height, imageLinkFull }: Props) {
   const [isOpen, setIsOpen] = useState(false);
   const handlePicture = (action) => {
     if (action === 'open') {
@@ -39,7 +40,8 @@ function GalerieItem({ imageLink, height }: Props) {
             exit={{ opacity: 0, y: -45, left: 0, top: 0 }}
           >
             <DynamicOpen
-              imageLink={imageLink}
+              imageLink={imageLinkFull}
+              title={title}
               onClick={() => handlePicture(isOpen ? 'close' : 'open')}
             />
           </motion.div>
