@@ -4,12 +4,13 @@ interface Props {
   title: string;
   center?: boolean;
   uppercase?: boolean;
+  color?: 'white' | 'black';
 }
 
-function H4({ title, center, uppercase }: Props) {
+function H4({ title, center, uppercase, color = 'white' }: Props) {
   return (
     <h3
-      className={`text-xl md:text-3xl font-semibold text-white ${
+      className={`text-xl md:text-3xl font-semibold ${color === 'white' ? 'text-white' : ''} ${color === 'black' ? 'text-dark-1' :''} ${
         center ? 'text-center' : ''
       } ${uppercase ? 'uppercase' : ''}`}
     >

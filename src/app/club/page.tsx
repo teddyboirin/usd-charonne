@@ -28,6 +28,9 @@ export default async function Club() {
                 <Item>{item.attributes.block.titre}</Item>
               </Link>
             ))}
+            <Link href="/teams">
+              <Item>Nos équipes</Item>
+            </Link>
             <Link href="/galerie">
               <Item>Nos photos</Item>
             </Link>

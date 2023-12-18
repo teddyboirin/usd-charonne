@@ -4,12 +4,14 @@ import { AnimatePresence, motion } from 'framer-motion';
 import { useWindowSize } from 'react-use';
 import Logo from '../icons/logo';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
+
 
 export default function Header() {
   const ulStyle = useMemo(() => 'flex gap-6', []);
   const liStyle = useMemo(() => 'text-16 hover:text-red duration-300', []);
   const { width } = useWindowSize();
-
+  const pathname = usePathname()
   const MenuRef = useRef(null);
 
   const handleMenu = (action: string) => {
@@ -20,7 +22,11 @@ export default function Header() {
     }
   };
   return width > 768 ? (
-    <header className="hidden md:block absolute top-0 left-0 z-10 w-full text-white">
+    <header
+      className={`hidden md:block absolute top-0 left-0 z-10 w-full duration-300 ${
+        pathname === '/teams/item' ? 'text-dark-1' : 'text-white'
+      }`}
+    >
       <AnimatePresence>
         <motion.div
           initial={{
