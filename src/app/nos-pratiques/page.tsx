@@ -1,6 +1,5 @@
 import { fetcher } from '@/helpers/utils';
 import BasicHead from '@/components/BasicHead';
-import Button from '@/components/Button';
 import ImageSide from '@/components/ImageSide';
 import Subnav from '@/components/Subnav';
 import Link from 'next/link';

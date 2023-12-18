@@ -7,7 +7,7 @@ interface Props {
 
 function Item({ children }: Props) {
   return (
-    <Button className="border border-gray-3 text-gray-3 rounded-[24px] hover:bg-white hover:text-dark-1">
+    <Button className="w-max border border-gray-3 text-gray-3 rounded-[24px] hover:bg-white hover:text-dark-1">
       {children}
     </Button>
   );
