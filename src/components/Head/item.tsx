@@ -40,7 +40,7 @@ export default function SliderItem({ title, desc, img, button }: Props) {
           backgroundSize: 'cover',
           backgroundRepeat: 'no-repeat',
         }}
-        transition={{ type: 'just', duration: 0.8, ease: 'easeIn' }}
+        transition={{ type: 'spring', duration: 0.8, ease: 'easeOut' }}
         exit={{
           opacity: 0,
           background: `url('${img}')`,

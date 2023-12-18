@@ -95,7 +95,9 @@ export default function Header() {
         transition={{ duration: 0.3 }}
       >
         <header className="md:hidden absolute top-0 left-0 z-10 w-full p-4 text-white flex items-center justify-between">
-          <Logo />
+          <Link href="/">
+            <Logo />
+          </Link>
           <div
             className="h-[36px] w-[36px] bg-red box_menu rounded-[8px] flex items-center flex-col justify-center gap-0.25 cursor-pointer"
             onClick={() => handleMenu('open')}

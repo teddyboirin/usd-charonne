@@ -10,7 +10,7 @@ import Loading from '@/components/icons/Loading';
 import Item from '@/components/Subnav/item';
 
 export default async function Club() {
-  const data = await fetcher('http://localhost:1337/api/le-clubs?populate=*', {
+  const data = await fetcher('http://localhost:1337/api/le-clubs?populate[0]=block&populate[1]=block.photo', {
     next: { revalidate: 3600 },
   });
 
@@ -41,7 +41,7 @@ export default async function Club() {
             id={item.attributes.block.id_item}
             title={item.attributes.block.titre}
             content={item.attributes.block.contenu}
-            image="https://placehold.co/800x300"
+            image={`${process.env.MEDIA_URL}${item.attributes.block.photo.data?.attributes?.url}`}
             color={item.attributes.block.couleur}
             reverse={item.attributes.block.reverse}
           />
