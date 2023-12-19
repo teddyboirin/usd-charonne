@@ -154,6 +154,9 @@ export default function Header() {
                   <Link href="/nous-rejoindre">Nous rejoindre</Link>
                 </li>
                 <li className="text-16">
+                  <Link href="/galerie">Nos photos</Link>
+                </li>
+                <li className="text-16">
                   <Link href="/nos-pratiques">Nos pratiques</Link>
                 </li>
                 <li className="text-16">
@@ -161,9 +164,6 @@ export default function Header() {
                 </li>
                 <li className="text-16">
                   <Link href="/ecole-de-basket">École de basket</Link>
-                </li>
-                <li className="text-16">
-                  <a href="/competitions">Compétitions FFBB</a>
                 </li>
               </ul>
             </nav>
