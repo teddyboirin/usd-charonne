@@ -6,12 +6,11 @@ import Logo from '../icons/logo';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
-
 export default function Header() {
   const ulStyle = useMemo(() => 'flex gap-6', []);
   const liStyle = useMemo(() => 'text-16 hover:text-red duration-300', []);
   const { width } = useWindowSize();
-  const pathname = usePathname()
+  const pathname = usePathname();
   const MenuRef = useRef(null);
 
   const handleMenu = (action: string) => {
@@ -55,7 +54,7 @@ export default function Header() {
                   <Link href="/nous-rejoindre">Nous rejoindre</Link>
                 </li>
                 <li className={liStyle}>
-                  <Link href="/nos-pratiques">Nos pratiques</Link>
+                  <Link href="/galerie">Nos photos</Link>
                 </li>
               </ul>
             </div>
@@ -67,13 +66,13 @@ export default function Header() {
             <div className="flex items-center justify-start">
               <ul className={ulStyle}>
                 <li className={liStyle}>
+                  <Link href="/nos-pratiques">Nos pratiques</Link>
+                </li>
+                <li className={liStyle}>
                   <Link href="/formations">Formation</Link>
                 </li>
                 <li className={liStyle}>
                   <Link href="/ecole-de-basket">École de basket</Link>
-                </li>
-                <li className={liStyle}>
-                  <Link href="/competitions">Compétitions FFBB</Link>
                 </li>
               </ul>
             </div>
