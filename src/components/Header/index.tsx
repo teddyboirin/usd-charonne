@@ -1,18 +1,19 @@
 'use client';
-import React, { useMemo, useRef } from 'react';
+import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { useWindowSize } from 'react-use';
+import { usePathname } from 'next/navigation';
+import { isDesktop } from '@/helpers/utils';
 import Logo from '../icons/logo';
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
 
 export default function Header() {
+  const { width } = useWindowSize();
   const ulStyle = useMemo(() => 'flex gap-6', []);
   const liStyle = useMemo(() => 'text-16 hover:text-red duration-300', []);
-  const { width } = useWindowSize();
   const pathname = usePathname();
+  const [isDesktopValue, setIsDesktopValue] = useState<boolean>();
   const MenuRef = useRef(null);
-
   const handleMenu = (action: string) => {
     if (action === 'open') {
       MenuRef?.current.classList.add('open_menu');
@@ -20,7 +21,13 @@ export default function Header() {
       MenuRef?.current.classList.remove('open_menu');
     }
   };
-  return width > 768 ? (
+
+  useEffect(() => {
+    if (isDesktop(width)) setIsDesktopValue(true);
+    else setIsDesktopValue(false)
+  }, [width])
+  
+  return isDesktopValue ? (
     <header
       className={`hidden md:block absolute top-0 left-0 z-10 w-full duration-300 ${
         pathname === '/teams/item' ? 'text-dark-1' : 'text-white'
@@ -171,5 +178,4 @@ export default function Header() {
         </header>
       </motion.div>
     </AnimatePresence>
-  );
-}
+)}
