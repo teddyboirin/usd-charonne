@@ -1,5 +1,11 @@
 'use client';
-import React, { useEffect, useMemo, useRef, useState } from 'react';
+import React, {
+  useCallback,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+} from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { useWindowSize } from 'react-use';
 import { usePathname } from 'next/navigation';
@@ -24,9 +30,9 @@ export default function Header() {
 
   useEffect(() => {
     if (isDesktop(width)) setIsDesktopValue(true);
-    else setIsDesktopValue(false)
-  }, [width])
-  
+    else setIsDesktopValue(false);
+  }, [width]);
+
   return isDesktopValue ? (
     <header
       className={`hidden md:block absolute top-0 left-0 z-10 w-full duration-300 ${
@@ -154,22 +160,22 @@ export default function Header() {
             </div>
             <nav className="h-full w-full">
               <ul className="h-full w-full flex items-center justify-center flex-col gap-2">
-                <li className="text-16">
+                <li className="text-16" onClick={() => handleMenu('close')}>
                   <Link href="/club">Le club</Link>
                 </li>
-                <li className="text-16">
+                <li className="text-16" onClick={() => handleMenu('close')}>
                   <Link href="/nous-rejoindre">Nous rejoindre</Link>
                 </li>
-                <li className="text-16">
+                <li className="text-16" onClick={() => handleMenu('close')}>
                   <Link href="/galerie">Nos photos</Link>
                 </li>
-                <li className="text-16">
+                <li className="text-16" onClick={() => handleMenu('close')}>
                   <Link href="/nos-pratiques">Nos pratiques</Link>
                 </li>
-                <li className="text-16">
+                <li className="text-16" onClick={() => handleMenu('close')}>
                   <Link href="/formations">Formations</Link>
                 </li>
-                <li className="text-16">
+                <li className="text-16" onClick={() => handleMenu('close')}>
                   <Link href="/ecole-de-basket">École de basket</Link>
                 </li>
               </ul>
@@ -178,4 +184,5 @@ export default function Header() {
         </header>
       </motion.div>
     </AnimatePresence>
-)}
+  );
+}

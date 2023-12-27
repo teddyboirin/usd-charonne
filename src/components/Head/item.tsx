@@ -21,7 +21,7 @@ export default function SliderItem({ title, desc, img, button }: Props) {
   return (
     <AnimatePresence>
       <motion.div
-        className="h-screen w-full relative"
+        className="h-[85vh] md:h-screen w-full relative"
         style={{
           backgroundImage: `url('${img}')`,
           backgroundSize: 'cover',

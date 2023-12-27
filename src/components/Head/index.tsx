@@ -1,6 +1,5 @@
 'use client';
 import { Autoplay, Keyboard, Pagination, Navigation } from 'swiper/modules';
-import { AnimatePresence, motion } from 'framer-motion';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { EffectFade } from 'swiper/modules';
 import 'swiper/css';
@@ -9,7 +8,7 @@ import 'swiper/css/effect-fade';
 import 'swiper/css/pagination';
 import SliderItem from './item';
 
-export default function Head({ data }: any) {
+export default function Head({ data }) {
   return (
     <>
       <Swiper

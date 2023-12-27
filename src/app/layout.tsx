@@ -18,7 +18,6 @@ export default async function RootLayout({
     next: { revalidate: 3600 },
   });
   const heads = headers()
-  const pathname = heads.get('next-url');
   
   return (
     <html lang="fr">
