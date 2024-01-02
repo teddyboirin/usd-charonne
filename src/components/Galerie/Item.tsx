@@ -32,19 +32,11 @@ function GalerieItem({ imageLink, title, height, imageLinkFull }: Props) {
     <>
       <AnimatePresence>
         {isOpen && (
-          <motion.div
-            className="h-screen w-screen bg-filter z-[100] fixed top-0 left-0 flex items-center justify-center"
-            initial={{ opacity: 0, y: -45, left: 0, top: 0 }}
-            animate={{ opacity: 1, y: 0, left: 0, top: 0 }}
-            transition={{ duration: 0.3 }}
-            exit={{ opacity: 0, y: -45, left: 0, top: 0 }}
-          >
             <DynamicOpen
               imageLink={imageLinkFull}
               title={title}
               onClick={() => handlePicture(isOpen ? 'close' : 'open')}
             />
-          </motion.div>
         )}
       </AnimatePresence>
       <button
