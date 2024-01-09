@@ -1,11 +1,7 @@
 import BasicHead from '@/components/BasicHead';
-import Button from '@/components/Button';
 import Container from '@/components/Container';
-import ImageSide from '@/components/ImageSide';
 import OtherArticle from '@/components/OtherArticle';
 import H3 from '@/components/Titles/h3';
-import H4 from '@/components/Titles/h4';
-import Link from 'next/link';
 import React from 'react';
 
 export default function Article() {

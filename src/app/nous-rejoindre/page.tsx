@@ -1,3 +1,4 @@
+import { fetcher } from '@/helpers/utils';
 import BasicHead from '@/components/BasicHead';
 import Button from '@/components/Button';
 import Contact from '@/components/Contact';
@@ -5,7 +6,6 @@ import DownloadFile from '@/components/DownloadFile';
 import ImageSide from '@/components/ImageSide';
 import Subnav from '@/components/Subnav';
 import Item from '@/components/Subnav/item';
-import { fetcher } from '@/helpers/utils';
 import Link from 'next/link';
 import React from 'react';
 

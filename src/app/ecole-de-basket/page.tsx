@@ -1,6 +1,5 @@
 import { fetcher } from '@/helpers/utils';
 import BasicHead from '@/components/BasicHead';
-import Button from '@/components/Button';
 import Container from '@/components/Container';
 import ImageSide from '@/components/ImageSide';
 import Subnav from '@/components/Subnav';
@@ -35,7 +34,7 @@ export default async function Ecole() {
           id={item.attributes.Block.id_item}
           title={item.attributes.Block.titre}
           content={item.attributes.Block.contenu}
-          image={`${item.attributes.Block.photo.data?.attributes?.formats.large?.url}`}
+          image={`${process.env.MEDIA_URL}${item.attributes.Block.photo.data?.attributes?.formats.large?.url}`}
           color={item.attributes.Block.couleur}
           reverse={item.attributes.Block.reverse}
         />

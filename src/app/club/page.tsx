@@ -1,7 +1,6 @@
 import { fetcher } from '@/helpers/utils';
 import { Suspense } from 'react';
 import BasicHead from '@/components/BasicHead';
-import Button from '@/components/Button';
 import ImageSide from '@/components/ImageSide';
 
 import Link from 'next/link';
