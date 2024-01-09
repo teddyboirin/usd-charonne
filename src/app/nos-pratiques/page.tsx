@@ -8,7 +8,7 @@ import Item from '@/components/Subnav/item';
 
 export default async function Pratiques() {
   const pratiquesData = await fetcher(
-    'http://localhost:1337/api/pratiques?populate[0]=block&populate[1]=block.photo',
+    '/pratiques?populate[0]=block&populate[1]=block.photo',
     { next: { revalidate: 3600 } }
   );
 

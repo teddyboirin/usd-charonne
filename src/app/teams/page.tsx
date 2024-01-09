@@ -5,7 +5,7 @@ import TeamsItem from '@/components/TeamsItem';
 import React from 'react';
 
 export default async function Teams() {
-  const data = await fetcher('http://localhost:1337/api/equipes?populate=*', {
+  const data = await fetcher('/equipes?populate=*', {
     next: { revalidate: 3600 },
   });
   return (

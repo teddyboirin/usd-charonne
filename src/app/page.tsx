@@ -5,13 +5,11 @@ import LastResults from '@/components/LastResults';
 import H2 from '@/components/Titles/h2';
 
 export default async function Home() {
-  const dataSlider = await fetcher(
-    'http://localhost:1337/api/sliders?populate=*'
-  );
+  const dataSlider = await fetcher(`/sliders?populate=*`);
   const dataHomepage = await fetcher(
-    'http://localhost:1337/api/homepages?populate[0]=homepage&populate[1]=homepage.photo'
+    '/homepages?populate[0]=homepage&populate[1]=homepage.photo'
   );
-  const dataResultats = await fetcher('http://localhost:1337/api/resultats');
+  const dataResultats = await fetcher('/resultats');
   return (
     <>
       <Head data={dataSlider} />

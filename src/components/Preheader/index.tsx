@@ -21,7 +21,7 @@ function Preheader({ data }) {
         modules={[Autoplay, Navigation]}
         className="preheader-swiper w-full md:w-[45%] max-h-[inherit]"
       >
-        {data.map((item, index) => (
+        {data?.map((item, index) => (
           <SwiperSlide
             className="text-center flex items-center justify-center"
             key={index}

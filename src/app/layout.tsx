@@ -14,7 +14,7 @@ export default async function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const dataPreheader = await fetcher('http://localhost:1337/api/annonces', {
+  const dataPreheader = await fetcher('/annonces', {
     next: { revalidate: 3600 },
   });
   const heads = headers()

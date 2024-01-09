@@ -10,7 +10,7 @@ import Loading from '@/components/icons/Loading';
 import Item from '@/components/Subnav/item';
 
 export default async function Club() {
-  const data = await fetcher('http://localhost:1337/api/le-clubs?populate[0]=block&populate[1]=block.photo', {
+  const data = await fetcher('/le-clubs?populate[0]=block&populate[1]=block.photo', {
     next: { revalidate: 3600 },
   });
 

@@ -9,7 +9,7 @@ import Item from '@/components/Subnav/item';
 
 export default async function Ecole() {
   const data = await fetcher(
-    'http://localhost:1337/api/ecole-de-baskets??populate[0]=Block&populate[1]=Block.photo',
+    '/ecole-de-baskets??populate[0]=Block&populate[1]=Block.photo',
     { next: { revalidate: 3600 } }
   );
   return (

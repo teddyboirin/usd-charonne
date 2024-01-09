@@ -9,7 +9,7 @@ import Item from '@/components/Subnav/item';
 
 export default async function Formations() {
   const data = await fetcher(
-    'http://localhost:1337/api/formations?populate[0]=block&populate[1]=block.photo',
+    '/formations?populate[0]=block&populate[1]=block.photo',
     { next: { revalidate: 3600 } }
   );
   return (

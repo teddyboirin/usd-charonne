@@ -4,7 +4,7 @@ type FetcherOptions = {
   body?: string;
 };
 
-export const fetcher = (url: string, options?) => fetch(url, options)
+export const fetcher = (url: string, options?) => fetch(`${process.env.BACKEND_API}${url}`, options)
   .then((res) => {
     if (res.ok && res.status !== 204) return res.json();
     if (res.ok && res.status === 204) return null;
@@ -12,6 +12,9 @@ export const fetcher = (url: string, options?) => fetch(url, options)
   })
   .catch((err) => {
     console.log(err);
+  }).finally(() => {
+    console.log(`${process.env.BACKEND_API}${url}`);
+    
   });
 
 

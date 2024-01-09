@@ -11,11 +11,11 @@ import React from 'react';
 
 export default async function Pratiques() {
   const coachData = await fetcher(
-    'http://localhost:1337/api/entraineurs?populate=*',
+    '/entraineurs?populate=*',
     { next: { revalidate: 3600 } }
   );
   const planningData = await fetcher(
-    'http://localhost:1337/api/plannings?populate=*',
+    '/plannings?populate=*',
     { next: { revalidate: 3600 } }
   );
 
