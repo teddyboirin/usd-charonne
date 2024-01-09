@@ -35,7 +35,7 @@ export default async function Ecole() {
           id={item.attributes.Block.id_item}
           title={item.attributes.Block.titre}
           content={item.attributes.Block.contenu}
-          image={`${process.env.MEDIA_URL}${item.attributes.Block.photo.data?.attributes?.formats.large?.url}`}
+          image={`${item.attributes.Block.photo.data?.attributes?.formats.large?.url}`}
           color={item.attributes.Block.couleur}
           reverse={item.attributes.Block.reverse}
         />
