@@ -23,7 +23,7 @@ export default async function Home() {
           id={item.attributes.homepage.id_item}
           title={item.attributes.homepage.titre}
           content={item.attributes.homepage.contenu}
-          image={`${process.env.MEDIA_URL}${item.attributes.homepage.photo.data?.attributes?.formats.large?.url}`}
+          image={`${item.attributes.homepage.photo.data?.attributes?.formats.large?.url}`}
           color={item.attributes.homepage.couleur}
           reverse={item.attributes.homepage.reverse}
         />

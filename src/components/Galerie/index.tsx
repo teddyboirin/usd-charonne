@@ -24,11 +24,11 @@ export default function GlobalContainer({ data }) {
             {data?.data?.map((item, index) => (
               <Item
                 key={index}
-                imageLink={`${`http://localhost:1337`}${
-                  item.attributes.photo.data.attributes.formats.large.url
+                imageLink={`${
+                  item.attributes.photo.data?.attributes.formats.large.url
                 }`}
-                imageLinkFull={`${`http://localhost:1337`}${
-                  item.attributes.photo.data.attributes.url
+                imageLinkFull={`${
+                  item.attributes.photo.data?.attributes.url
                 }`}
                 height={Math.random() * (900 - 200) + 200}
                 title={item.attributes.titre}

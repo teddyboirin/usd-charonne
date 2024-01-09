@@ -32,7 +32,7 @@ export default function Head({ data }) {
             <SliderItem
               title={item.attributes.titre}
               desc={item.attributes.sous_titre}
-              img={`${`http://localhost:1337`}${
+              img={`${
                 item.attributes.photo?.data?.attributes?.url
               }`}
               button={

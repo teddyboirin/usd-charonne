@@ -76,13 +76,13 @@ export default async function Pratiques() {
       <ImageSide
         id="planning"
         title={planningData.data[0].attributes.title}
-        image={`${process.env.MEDIA_URL}${planningData.data[0].attributes.photo.data.attributes.url}`}
+        image={`${process.env.MEDIA_URL}${planningData.data[0].attributes.photo.data?.attributes.url}`}
         color="white"
         reverse
       >
         <>
           <a
-            href={`${process.env.MEDIA_URL}${planningData.data[0].attributes.fichier.data.attributes?.url}`}
+            href={`${planningData.data[0].attributes.fichier.data.attributes?.url}`}
             target="_blank"
           >
             <Button black>Télécharger le planning</Button>

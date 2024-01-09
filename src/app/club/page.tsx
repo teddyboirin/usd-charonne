@@ -44,7 +44,7 @@ export default async function Club() {
             id={item.attributes.block.id_item}
             title={item.attributes.block.titre}
             content={item.attributes.block.contenu}
-            image={`${process.env.MEDIA_URL}${item.attributes.block.photo.data?.attributes?.url}`}
+            image={`${item.attributes.block.photo.data?.attributes?.url}`}
             color={item.attributes.block.couleur}
             reverse={item.attributes.block.reverse}
           />
