@@ -22,7 +22,7 @@ export default async function Club() {
       <Suspense fallback={<Loading />}>
         <Subnav>
           <>
-            {data.data.map((item, index) => (
+            {data.data?.map((item, index) => (
               <Link href={`#${item.attributes.block.id_item}`} key={index}>
                 <Item>{item.attributes.block.titre}</Item>
               </Link>
@@ -37,7 +37,7 @@ export default async function Club() {
         </Subnav>
       </Suspense>
       <Suspense fallback={<Loading />}>
-        {data.data.map((item, index) => (
+        {data.data?.map((item, index) => (
           <ImageSide
             key={index}
             id={item.attributes.block.id_item}

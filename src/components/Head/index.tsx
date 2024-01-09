@@ -27,7 +27,7 @@ export default function Head({ data }) {
         }}
         modules={[EffectFade, Autoplay, Keyboard, Pagination, Navigation]}
       >
-        {data?.data.map((item, index) => (
+        {data?.data?.map((item, index) => (
           <SwiperSlide key={index}>
             <SliderItem
               title={item.attributes.titre}

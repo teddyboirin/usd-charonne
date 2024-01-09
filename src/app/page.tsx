@@ -17,7 +17,7 @@ export default async function Home() {
         <H2 title="Derniers résultats" uppercase center />
         <LastResults data={dataResultats.data} />
       </section>
-      {dataHomepage.data.map((item, index) => (
+      {dataHomepage?.data?.map((item, index) => (
         <ImageSide
           key={index}
           id={item.attributes.homepage.id_item}

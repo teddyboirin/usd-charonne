@@ -20,14 +20,14 @@ export default async function Pratiques() {
       />
       <Subnav>
         <>
-          {pratiquesData.data.map((item, index) => (
+          {pratiquesData.data?.map((item, index) => (
             <Link href={`#${item.attributes.block.id_item}`} key={index}>
               <Item>{item.attributes.block.titre}</Item>
             </Link>
           ))}
         </>
       </Subnav>
-      {pratiquesData.data.map((item, index) => (
+      {pratiquesData.data?.map((item, index) => (
         <ImageSide
           key={index}
           id={item.attributes.block.id_item}

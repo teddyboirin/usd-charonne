@@ -75,14 +75,14 @@ export default async function Pratiques() {
       </ImageSide>
       <ImageSide
         id="planning"
-        title={planningData.data[0].attributes.title}
-        image={`${process.env.MEDIA_URL}${planningData.data[0].attributes.photo.data?.attributes.url}`}
+        title={planningData.data[0]?.attributes.title}
+        image={`${process.env.MEDIA_URL}${planningData.data[0]?.attributes.photo.data?.attributes.url}`}
         color="white"
         reverse
       >
         <>
           <a
-            href={`${planningData.data[0].attributes.fichier.data.attributes?.url}`}
+            href={`${planningData.data[0]?.attributes.fichier.data?.attributes?.url}`}
             target="_blank"
           >
             <Button black>Télécharger le planning</Button>
@@ -96,7 +96,7 @@ export default async function Pratiques() {
         color="black"
       >
         <div className="grid grid-cols-1 md:grid-cols-2 w-full gap-3">
-          {coachData.data.map((coach, index) => {
+          {coachData.data?.map((coach, index) => {
             return (
               <Contact
                 key={index}
