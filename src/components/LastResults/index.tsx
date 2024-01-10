@@ -28,7 +28,7 @@ export default function LastResults({ data }) {
   };
   return (
     <div className="min-w-[100%] md:min-w-[680px] gradient_ranking rounded-basic p-2 md:p-4 border-[red] grid grid-cols-[.4fr_.05fr_.4fr_.2fr] md:grid-cols-[.4fr_.1fr_.4fr_.1fr] gap-2 md:gap-3 text-white">
-      {data.map((item, index) => (
+      {data?.map((item, index) => (
         <Item
           key={index}
           teamA={item.attributes.team_a}

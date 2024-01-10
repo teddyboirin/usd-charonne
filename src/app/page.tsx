@@ -15,7 +15,7 @@ export default async function Home() {
       <Head data={dataSlider} />
       <section className="bg-black p-6 w-full flex flex-col md:items-center gap-6">
         <H2 title="Derniers résultats" uppercase center />
-        <LastResults data={dataResultats.data} />
+        <LastResults data={dataResultats?.data} />
       </section>
       {dataHomepage?.data?.map((item, index) => (
         <ImageSide
