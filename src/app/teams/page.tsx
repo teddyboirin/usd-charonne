@@ -19,8 +19,8 @@ export default async function Teams() {
               <TeamsItem
                 key={index}
                 title={team.attributes.nom}
-                img={`${process.env.MEDIA_URL}${team.attributes.photo.data?.attributes?.formats.large.url}`}
-                link="/teams/item"
+                img={team.attributes.photo.data?.attributes?.formats.large.url}
+                link={`/teams/${team.attributes.code}`}
               />
             );
           })}
