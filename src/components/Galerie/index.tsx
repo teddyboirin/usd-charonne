@@ -5,18 +5,20 @@ import Item from './Item';
 import ButtonFilter from './ButtonFilter';
 import 'react-image-gallery/styles/css/image-gallery.css';
 import Masonry from '@mui/lab/Masonry';
-import { useState } from 'react';
+import { useCallback, useState } from 'react';
 
 export default function GlobalContainer({ data }) {
   const { width } = useWindowSize();
-  const [teamType, setTeamType] = useState('');
+  const [teamType, setTeamType] = useState<string>('');
 
-  const filteredTeams = data?.data.filter(teamTypes => {
-    const { team } = teamTypes.attributes;
-    const teamTypesFiltered = team.toLowerCase().includes(teamType.toLowerCase());
+  const filteredTeams = useCallback(() => {
+    return data?.data.filter(teamTypes => {
+      const { team } = teamTypes.attributes;
+      const teamTypesFiltered = team.toLowerCase().includes(teamType.toLowerCase());
 
-    return teamTypesFiltered;
-  })
+      return teamTypesFiltered;
+    })
+  }, [data?.data, teamType])
 
   return (
     <>
