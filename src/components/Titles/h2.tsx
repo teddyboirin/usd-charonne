@@ -3,7 +3,7 @@ import { memo } from 'react';
 interface Props {
   title: string;
   className?: string;
-  uppercase?: string;
+  uppercase?: boolean;
   center?: boolean;
   color?: 'black' | 'white';
 }
