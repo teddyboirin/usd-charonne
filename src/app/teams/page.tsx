@@ -11,7 +11,6 @@ export default async function Teams() {
   return (
     <>
       <BasicHead title="Nos équipes" image="" />
-      {/* <BasicHead image="https://placehold.co/800x300" /> */}
       <Container>
         <section className="grid grid-cols-1 gap-3 md:grid-cols-3 md:gap-6 pb-6 mt-10">
           {data.data?.map((team, index) => {
