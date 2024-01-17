@@ -12,34 +12,49 @@ export default function GlobalContainer({ data }) {
   const [teamType, setTeamType] = useState<string>('');
 
   const filteredTeams = useCallback(() => {
-    return data?.data.filter(teamTypes => {
+    return data?.data.filter((teamTypes) => {
       const { team } = teamTypes.attributes;
-      const teamTypesFiltered = team.toLowerCase().includes(teamType.toLowerCase());
+      const teamTypesFiltered = team
+        .toLowerCase()
+        .includes(teamType.toLowerCase());
 
       return teamTypesFiltered;
-    })
-  }, [data?.data, teamType])
+    });
+  }, [data?.data, teamType]);
 
+  const selectTeam = useCallback((value) => {
+    {
+      if (teamType !== value) {
+        setTeamType(value);
+      } else {
+        setTeamType('');
+      }
+    }
+  }, [teamType]);
   return (
     <>
       <section className="w-full bg-gray-0">
         <div className="w-full flex items-center justify-center">
           <div className="flex gap-3 items-center justify-center max-w-[80%] md:max-w-[600px]">
-            <ButtonFilter value="SM1" onClick={() => setTeamType("SM1")} isActive={teamType === "SM1"} />
-            <ButtonFilter value="SF1" onClick={() => setTeamType("SF1")} isActive={teamType === "SF1"} />
+            <ButtonFilter
+              value="SM1"
+              onClick={() => selectTeam('SM1')}
+              isActive={teamType === 'SM1'}
+            />
+            <ButtonFilter
+              value="SF1"
+              onClick={() => selectTeam('SF1')}
+              isActive={teamType === 'SF1'}
+            />
           </div>
         </div>
         <div className="mt-6 w-full">
           <Masonry columns={isDesktop(width) ? 4 : 2} spacing={2}>
-            {filteredTeams?.map((item, index) => (
+            {filteredTeams()?.map((item, index) => (
               <Item
                 key={index}
-                imageLink={`${
-                  item.attributes.photo.data?.attributes.formats.large.url
-                }`}
-                imageLinkFull={`${
-                  item.attributes.photo.data?.attributes.url
-                }`}
+                imageLink={`${item.attributes.photo.data?.attributes.formats.large.url}`}
+                imageLinkFull={`${item.attributes.photo.data?.attributes.url}`}
                 height={Math.random() * (900 - 200) + 200}
                 title={item.attributes.titre}
               />
