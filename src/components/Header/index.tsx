@@ -14,10 +14,13 @@ import Logo from '../icons/logo';
 import Link from 'next/link';
 
 export default function Header() {
+
+  
   const { width } = useWindowSize();
   const ulStyle = useMemo(() => 'flex gap-6', []);
   const liStyle = useMemo(() => 'text-16 hover:text-red duration-300', []);
   const pathname = usePathname();
+  
   const [isDesktopValue, setIsDesktopValue] = useState<boolean>();
   const MenuRef = useRef(null);
   const handleMenu = (action: string) => {
@@ -36,7 +39,7 @@ export default function Header() {
   return isDesktopValue ? (
     <header
       className={`hidden md:block absolute top-0 left-0 z-10 w-full duration-300 ${
-        pathname === '/teams/item' ? 'text-dark-1' : 'text-white'
+        pathname.includes('/teams/') ? 'text-white' : 'text-white'
       }`}
     >
       <AnimatePresence>
