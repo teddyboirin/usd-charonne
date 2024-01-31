@@ -32,7 +32,7 @@ export default async function Formations() {
           id={item.attributes.block.id_item}
           title={item.attributes.block.titre}
           content={item.attributes.block.contenu}
-          image={`${item.attributes.block.photo.data?.attributes?.formats.large?.url}`}
+          image={`${item.attributes.block.photo.data?.attributes?.url}`}
           color={item.attributes.block.couleur}
           reverse={item.attributes.block.reverse}
         />

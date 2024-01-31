@@ -8,7 +8,7 @@ import Item from '@/components/Subnav/item';
 
 export default async function Pratiques() {
   const pratiquesData = await fetcher(
-    '/pratiques?populate[0]=block&populate[1]=block.photo',
+    '/pratiques?populate[0]=block&populate[1]=block.photo&sort[0]=id:asc',
     { next: { revalidate: 3600 } }
   );
 
@@ -33,7 +33,7 @@ export default async function Pratiques() {
           id={item.attributes.block.id_item}
           title={item.attributes.block.titre}
           content={item.attributes.block.contenu}
-          image={`${item.attributes.block.photo.data?.attributes?.formats.large?.url}`}
+          image={`${item.attributes.block.photo.data?.attributes?.url}`}
           color={item.attributes.block.couleur}
           reverse={item.attributes.block.reverse}
         />

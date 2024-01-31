@@ -15,7 +15,8 @@ function BasicHead({ image, title }: Props) {
       style={{
         backgroundImage: `url('${image}')`,
         backgroundPosition: 'center',
-        filter: 'grayscale(70%)',
+        filter: 'grayscale(30%)',
+        backgroundSize: 'cover'
       }}
     >
       <div className="absolute h-[130px] gradient_filter_head bottom-0 w-full"></div>

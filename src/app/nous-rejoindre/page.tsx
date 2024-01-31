@@ -10,15 +10,9 @@ import Link from 'next/link';
 import React from 'react';
 
 export default async function Pratiques() {
-  const coachData = await fetcher(
-    '/entraineurs?populate=*',
-    { next: { revalidate: 3600 } }
-  );
-  const planningData = await fetcher(
-    '/plannings?populate=*',
-    { next: { revalidate: 3600 } }
-  );
-
+  const coachData = await fetcher('/entraineurs?populate=*', {
+    next: { revalidate: 3600 },
+  });
 
   return (
     <>
@@ -28,11 +22,8 @@ export default async function Pratiques() {
       />
       <Subnav>
         <>
-          <Link href="#inscription">
-            <Item>Inscription</Item>
-          </Link>
-          <Link href="#planning">
-            <Item>Planning des entrainements</Item>
+          <Link href="#docs">
+            <Item>Documents essentiels</Item>
           </Link>
           <Link href="#contacts">
             <Item>Contacts Entraineurs</Item>
@@ -40,60 +31,50 @@ export default async function Pratiques() {
         </>
       </Subnav>
       <ImageSide
-        id="inscription"
+        id="docs"
         title="Documents du club essentiels"
-        image="https://placehold.co/800x300"
+        image="./assets/team.jpg"
         color="black"
       >
         <div className="w-full grid grid-cols-1 md:flex md:flex-wrap gap-3 mt-3 items-center justify-center">
           <DownloadFile
             title="Inscriptions 2023-2024"
             text="Télécharger le formulaire d'inscription 2023-2024"
-            file="#"
+            file="/docs/inscription.pdf"
           />
           <DownloadFile
             title="Fiche de renseignements"
             text="À remplir et à renvoyer par mail à usdc.basket@gmail.com ou à remettre aux entraîneurs"
-            file="#"
+            file="/docs/fiche-de-renseignements.pdf"
           />
           <DownloadFile
             title="Certificat médical"
             text="Télécharger le formulaire de certificat médical"
-            file="#"
+            file="/docs/certificat-medical.pdf"
           />
           <DownloadFile
             title="INSCRIPTIONS LOISIRS SENIORS"
             text="Télécharger le formulaire d'inscription loisirs séniors"
-            file="#"
+            file="/docs/inscription-loisir-senior.pdf"
           />
           <DownloadFile
             title="AGES DES SURCLASSEMENTS"
             text="Télécharger le formulaire des âges des surclassements"
-            file="#"
+            file="/docs/surclassement.pdf"
+          />
+          <DownloadFile
+            title="Planning des entrainements"
+            text="Télécharger le planning des entrainements"
+            file="/docs/planning.pdf"
           />
         </div>
       </ImageSide>
       <ImageSide
-        id="planning"
-        title={planningData.data[0]?.attributes.title}
-        image={`${process.env.MEDIA_URL}${planningData.data[0]?.attributes.photo.data?.attributes.url}`}
-        color="white"
-        reverse
-      >
-        <>
-          <a
-            href={`${planningData.data[0]?.attributes.fichier.data?.attributes?.url}`}
-            target="_blank"
-          >
-            <Button black>Télécharger le planning</Button>
-          </a>
-        </>
-      </ImageSide>
-      <ImageSide
         id="contacts"
         title="Contacts Entraineurs"
-        image="https://placehold.co/800x300"
+        image="./assets/team2.jpg"
         color="black"
+        reverse
       >
         <div className="grid grid-cols-1 md:grid-cols-2 w-full gap-3">
           {coachData.data?.map((coach, index) => {

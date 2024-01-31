@@ -14,7 +14,7 @@ export default async function TeamItem({ params }) {
     }
   );
   const dataPlayer = await fetcher(
-    `/joueurs?populate=*&filters[equipe][code][$eq]=${params.code}`,
+    `/joueurs?populate=*&filters[equipe][code][$eq]=${params.code}&sort[0]=poste:desc`,
     {
       next: { revalidate: 3600 },
     }
@@ -24,7 +24,7 @@ export default async function TeamItem({ params }) {
     <>
       <BasicHead
         title={data.data[0]?.attributes.nom}
-        image="https://images.unsplash.com/photo-1577416412292-747c6607f055?q=80&w=3042&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+        image={data.data[0]?.attributes.photo.data.attributes.url}
       />
       <Container>
         <>

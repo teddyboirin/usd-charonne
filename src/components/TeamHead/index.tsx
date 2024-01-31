@@ -9,7 +9,7 @@ type Props = {
 
 export default function TeamHead({description}: Props) {
   return (
-    <div className="mt-[30px] md:mt-[50px] grid md:grid-cols-[8fr_2fr] items-center gap-3 md:gap-6 py-2 md:py-3">
+    <div className="mt-[30px] md:mt-[50px] grid md:grid-cols-[8fr_2fr] gap-3 md:gap-6 py-2 md:py-3">
       <div className="w-full order-1 md:order-0">
           <Markdown className="text-dark-1 leading-normal text-14 md:text-16">{description}</Markdown>
       </div>

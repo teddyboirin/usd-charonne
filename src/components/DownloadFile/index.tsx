@@ -10,7 +10,7 @@ interface Props {
 
 function DownloadFile({ title, text, file }: Props) {
   return (
-    <a href={file} target="_blank">
+    <a href={file} target="_blank" download={file}>
       <div className="border_files rounded-basic">
         <div className="bg-black p-3 flex items-center justify-center flex-col text-center gap-3 rounded-basic text-white">
           <H5 title={title} white></H5>
