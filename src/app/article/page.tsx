@@ -13,8 +13,8 @@ export default function Article() {
       />
       <Container className="mt-4">
         <div className="w-full mb-10 grid grid-cols-1 md:grid-cols-[.7fr_.2fr] justify-between gap-10 pb-3">
-          <div className="text-white text-16 text-justify">
-            <H3 title="titre"></H3>
+          <div className="text-black text-16 text-justify">
+            <H3 title="titre" color="black" />
             <p className="my-2">
               Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tenetur
               quia quidem alias ipsam praesentium aliquam expedita, itaque quam,
@@ -29,7 +29,7 @@ export default function Article() {
               quaerat quod, magnam eius debitis fugiat. Eum veritatis
               consectetur quos repellendus animi ad!
             </p>
-            <H3 title="titre"></H3>
+            <H3 title="titre" color="black" />
             <p className="mt-2">
               Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tenetur
               quia quidem alias ipsam praesentium aliquam expedita, itaque quam,
@@ -46,7 +46,7 @@ export default function Article() {
             </p>
           </div>
           <div className="flex py-3 flex-col rounded-basic">
-            <h4 className="font-black md:text-center text-24 uppercase text-white">
+            <h4 className="font-black md:text-center text-24 uppercase text-black">
               Autres articles
             </h4>
             <ul className="w-full py-2 gap-3 flex flex-col">

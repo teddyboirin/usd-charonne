@@ -16,6 +16,7 @@ function TeamsItem({ title, img, link }: Props) {
         style={{
           background: `url(${img})`,
           backgroundSize: 'cover',
+          backgroundPosition: 'right',
           backgroundRepeat: 'no-repeat',
         }}
       >

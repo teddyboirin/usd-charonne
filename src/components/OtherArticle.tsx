@@ -10,7 +10,7 @@ function OtherArticle({ title, desc, link }: Props) {
   return (
     <Link href={link}>
       <li className="flex flex-col p-2 gap-0.25 bg-white">
-        <div className="font-bold text-18">{title}</div>
+        <h5 className="font-bold text-16">{title}</h5>
         <p className="text-14">{desc}...</p>
       </li>
     </Link>
