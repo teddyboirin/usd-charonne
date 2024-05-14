@@ -15,7 +15,9 @@ function Player({ name, photo, poste }: Props) {
       <div className="absolute bottom-3 left-1/2 -translate-x-1/2 text-white uppercase font-semibold text-center">
         <div className="flex flex-col gap-0.5">
           <div>{name}</div>
-          <div className="text-12">{poste.toLowerCase() !== "coach" ? "poste" : ""} {poste}</div>
+          <div className="text-12">
+            {poste.toLowerCase() !== 'coach' ? 'poste' : ''} {poste}
+          </div>
         </div>
       </div>
     </div>

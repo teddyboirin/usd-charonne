@@ -10,7 +10,7 @@ export default function Footer() {
     <div className="w-full pb-4 md:pb-0 text-dark-1 uppercase bg-gray-0">
       <div className="bg-black text-white p-4 md:p-6 flex items-center justify-center mb-2 md:mb-10 font-evog">
         <span className="text-26 md:text-40 font-bold flex items-center justify-center text-center">
-        Charonne dans le 💙❤️ !
+          Charonne dans le 💙❤️ !
         </span>
       </div>
       <Container className="flex flex-col justify-center md:grid md:grid-cols-4 gap-2 md:gap-3 border_footer text-14">
@@ -42,10 +42,10 @@ export default function Footer() {
         <div className="w-full flex justify-center text-center md:text-left">
           <ul className="h-full flex flex-col gap-1 md:gap-2">
             <li>
-              <Link href="">Mentions légales</Link>
+              <Link href="/mentions-legales">Mentions légales</Link>
             </li>
             <li>
-             <a href="mailto:contact@usdcbasket.com">Nous contacter</a>
+              <a href="mailto:contact@usdcbasket.com">Nous contacter</a>
             </li>
           </ul>
         </div>

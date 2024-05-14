@@ -4,9 +4,20 @@ import Header from '@/components/Header';
 import './globals.scss';
 import Preheader from '@/components/Preheader';
 import Footer from '@/components/Footer';
+import Fv144 from '../../public/assets/favicons/fv144.png'
+import Fv96 from '../../public/assets/favicons/fv96.png'
 export const metadata = {
   title: 'USD Charonne',
   description: 'Club de basket - Paris 20',
+  icons: {
+    icon: Fv96.src,
+    shortcut: Fv96.src,
+    apple: Fv144.src,
+    other: {
+      rel: 'apple-touch-icon-precomposed',
+      url: Fv144.src,
+    },
+  },
 };
 
 export default async function RootLayout({

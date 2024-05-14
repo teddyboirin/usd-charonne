@@ -28,7 +28,10 @@ export default async function TeamItem({ params }) {
       />
       <Container>
         <>
-          <Link href="/teams" className="bg-dark-1 p-2 w-fit flex gap-1 mt-3 text-white text-13 items-center justify-center rounded-basic">
+          <Link
+            href="/teams"
+            className="bg-dark-1 p-2 w-fit flex gap-1 mt-3 text-white text-13 items-center justify-center rounded-basic"
+          >
             <div>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -59,7 +62,11 @@ export default async function TeamItem({ params }) {
                 key={index}
                 name={player.attributes.nom}
                 poste={player.attributes.poste}
-                photo={player.attributes.photo.data[0].attributes.url}
+                photo={
+                  player.attributes?.photo?.data
+                    ? player.attributes?.photo?.data[0]?.attributes?.url
+                    : 'https://res.cloudinary.com/dzljuty9d/image/upload/v1715694595/user_a5c8ea2906.jpg'
+                }
               />
             ))}
           </section>

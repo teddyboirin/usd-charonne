@@ -258,23 +258,26 @@ strong {
 }
 
 .subnav_gradient {
-    position: fixed;
-    right: 0;
-    top: 0;
-    width: 40px;
-    height: 100%;
-    background: linear-gradient(270deg, #1E1E1E 0%, rgba(30, 30, 30, 0.00) 100%);
-    z-index: 100;
-    border-radius: 24px;
-    @media screen and (min-width: 768px) {
-      right: 20px;
-    }
+  position: fixed;
+  right: 0;
+  top: 0;
+  width: 40px;
+  height: 100%;
+  background: linear-gradient(270deg, #1e1e1e 0%, rgba(30, 30, 30, 0) 100%);
+  z-index: 100;
+  border-radius: 24px;
+  @media screen and (min-width: 768px) {
+    right: 20px;
   }
-  .subnav_gradient--start {
-    left: 0;
-    right: inherit;
-    background: linear-gradient(90deg, #1E1E1E 4%, rgba(30, 30, 30, 0.00) 100%);
-    @media screen and (min-width: 768px) {
-      left: 20px;
-    }
+}
+.subnav_gradient--start {
+  left: 0;
+  right: inherit;
+  background: linear-gradient(90deg, #1e1e1e 4%, rgba(30, 30, 30, 0) 100%);
+  @media screen and (min-width: 768px) {
+    left: 20px;
+  }
+}
+p {
+  line-height: 130%;
 }
