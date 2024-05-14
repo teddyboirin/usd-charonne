@@ -56,7 +56,7 @@ export default async function TeamItem({ params }) {
             color="black"
             className="mb-4 mt-4 md:mt-0 font-bold"
           />
-          <section className="grid grid-cols-1 md:grid-cols-4 gap-6 pb-8 ">
+          <section className="grid grid-cols-1 md:grid-cols-4 gap-6 pb-8">
             {dataPlayer?.data?.map((player, index) => (
               <Player
                 key={index}

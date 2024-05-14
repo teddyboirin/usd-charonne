@@ -17,9 +17,9 @@ export default function Ranking() {
       <div className="w-full flex items-center justify-center text-dark-1 uppercase text-16 md:text-16 mb-4 font-bold">
         Position au classement
       </div>
-      <div className="w-full h-auto flex flex-col gap-0.5 ">
+      <div className="w-full h-auto flex flex-col gap-0.5">
         <TeamItemLine team="SM1" ranking="rang" victory="V"  defeat="D" points="pts" bold />
-        <TeamItemLine team="SM1" ranking="1ER" victory={10}  defeat={0} points={384} bold={false} />
+        <TeamItemLine team="SM1" ranking="1ER" victory={21}  defeat={0} points={1721} bold={false} />
       </div>
     </div>
   );
