@@ -1,14 +1,10 @@
 'use client';
-import { isDesktop } from '@/helpers/utils';
 import { useWindowSize } from 'react-use';
 import Item from './Item';
 import ButtonFilter from './ButtonFilter';
-import 'react-image-gallery/styles/css/image-gallery.css';
-import Masonry from '@mui/lab/Masonry';
 import { useCallback, useState } from 'react';
 
 export default function GlobalContainer({ data }) {
-  const { width } = useWindowSize();
   const [teamType, setTeamType] = useState<string>('');
 
   const filteredTeams = useCallback(() => {
@@ -22,15 +18,18 @@ export default function GlobalContainer({ data }) {
     });
   }, [data?.data, teamType]);
 
-  const selectTeam = useCallback((value) => {
-    {
-      if (teamType !== value) {
-        setTeamType(value);
-      } else {
-        setTeamType('');
+  const selectTeam = useCallback(
+    (value) => {
+      {
+        if (teamType !== value) {
+          setTeamType(value);
+        } else {
+          setTeamType('');
+        }
       }
-    }
-  }, [teamType]);
+    },
+    [teamType]
+  );
   return (
     <>
       <section className="w-full bg-gray-0">
@@ -48,18 +47,15 @@ export default function GlobalContainer({ data }) {
             />
           </div>
         </div>
-        <div className="mt-6 w-full">
-          <Masonry columns={isDesktop(width) ? 4 : 2} spacing={2}>
-            {filteredTeams()?.map((item, index) => (
-              <Item
-                key={index}
-                imageLink={`${item.attributes.photo.data?.attributes.formats.large.url}`}
-                imageLinkFull={`${item.attributes.photo.data?.attributes.url}`}
-                height={Math.random() * (900 - 200) + 200}
-                title={item.attributes.titre}
-              />
-            ))}
-          </Masonry>
+        <div className="my-3 md:my-6 w-full grid grid-cols-2 md:grid-cols-3 gap-1 md:gap-4">
+          {filteredTeams()?.map((item, index) => (
+            <Item
+              key={index}
+              imageLink={`${item.attributes.photo.data?.attributes.formats.large.url}`}
+              imageLinkFull={`${item.attributes.photo.data?.attributes.url}`}
+              title={item.attributes.titre}
+            />
+          ))}
         </div>
       </section>
     </>

@@ -14,7 +14,7 @@ function Contact({ name, tel, team }: Props) {
       </div>
       <div className="w-full flex flex-col justify-center gap-y-0.25">
         <h6>{name}</h6>
-        <h4 className="text-14 text-gray-1">{tel}</h4>
+        <h4 className="text-14 text-gray-1">0{tel}</h4>
       </div>
       <div className="flex justify-end items-center">
         <a href={`tel:+33${tel}`}>

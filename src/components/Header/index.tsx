@@ -1,6 +1,5 @@
 'use client';
 import React, {
-  useCallback,
   useEffect,
   useMemo,
   useRef,
@@ -14,13 +13,11 @@ import Logo from '../icons/logo';
 import Link from 'next/link';
 
 export default function Header() {
-
-  
   const { width } = useWindowSize();
   const ulStyle = useMemo(() => 'flex gap-6', []);
-  const liStyle = useMemo(() => 'text-16 hover:text-red duration-300', []);
+  const liStyle = useMemo(() => 'text-14 hover:text-red duration-300', []);
   const pathname = usePathname();
-  
+
   const [isDesktopValue, setIsDesktopValue] = useState<boolean>();
   const MenuRef = useRef(null);
   const handleMenu = (action: string) => {

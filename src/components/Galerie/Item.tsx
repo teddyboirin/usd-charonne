@@ -8,7 +8,6 @@ interface Props {
   imageLink: string;
   imageLinkFull: string;
   title: string;
-  height: number;
   onClick?: () => void;
 }
 
@@ -16,9 +15,11 @@ const DynamicOpen = dynamic(() => import('./Open'), {
   loading: () => <Loading />,
 });
 
-function GalerieItem({ imageLink, title, height, imageLinkFull }: Props) {
-  const [isOpen, setIsOpen] = useState(false);
+function GalerieItem({ imageLink, title, imageLinkFull }: Props) {
+  const [isOpen, setIsOpen] = useState<boolean>(false);
   const handlePicture = (action) => {
+    console.log('ok');
+
     if (action === 'open') {
       document.body.classList.add('overflow-hidden');
       setIsOpen(true);
@@ -32,20 +33,26 @@ function GalerieItem({ imageLink, title, height, imageLinkFull }: Props) {
     <>
       <AnimatePresence>
         {isOpen && (
-            <DynamicOpen
-              imageLink={imageLinkFull}
-              title={title}
-              onClick={() => handlePicture(isOpen ? 'close' : 'open')}
-            />
+          <DynamicOpen
+            imageLink={imageLinkFull}
+            title={title}
+            onClick={() => handlePicture(isOpen ? 'close' : 'open')}
+          />
         )}
       </AnimatePresence>
       <button
+        className="h-[150px] md:h-[300px]"
         type="button"
-        style={{ height }}
         onClick={() => handlePicture(isOpen ? 'close' : 'open')}
       >
         <div className="w-full relative h-full">
-          <Image src={imageLink} alt="desc" fill objectFit="cover" />
+          <Image
+            src={imageLink}
+            alt="desc"
+            fill
+            objectFit="cover"
+            loading="lazy"
+          />
         </div>
       </button>
     </>
