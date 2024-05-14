@@ -5,7 +5,7 @@ import H1 from '../Titles/h1';
 
 interface Props {
   title: string;
-  image: string;
+  image?: string;
 }
 
 function BasicHead({ image, title }: Props) {
