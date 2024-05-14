@@ -20,22 +20,19 @@ export default function Footer() {
         <div className="w-full flex justify-center text-center md:text-left">
           <ul className="h-full flex flex-col gap-1 md:gap-2">
             <li>
-              <Link href="">Le club</Link>
+              <Link href="/club">Le club</Link>
             </li>
             <li>
-              <Link href="">Nous rejoindre</Link>
+              <Link href="/nous-rejoindre">Nous rejoindre</Link>
             </li>
             <li>
-              <Link href="">Nos pratiques</Link>
+              <Link href="/nos-pratiques">Nos pratiques</Link>
             </li>
             <li>
-              <Link href="">Formations</Link>
+              <Link href="/formations">Formations</Link>
             </li>
             <li>
-              <Link href="">École de basket</Link>
-            </li>
-            <li>
-              <Link href="">Compétitions FFBB</Link>
+              <Link href="/ecole-de-basket">École de basket</Link>
             </li>
           </ul>
         </div>
