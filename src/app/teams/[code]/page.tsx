@@ -10,13 +10,13 @@ export default async function TeamItem({ params }) {
   const data = await fetcher(
     `/equipes?populate=*&filters[code][$eq]=${params.code}`,
     {
-      next: { revalidate: 3600 },
+      next: { revalidate: 0 },
     }
   );
   const dataPlayer = await fetcher(
     `/joueurs?populate=*&filters[equipe][code][$eq]=${params.code}&sort[0]=id:desc`,
     {
-      next: { revalidate: 3600 },
+      next: { revalidate: 0 },
     }
   );
 

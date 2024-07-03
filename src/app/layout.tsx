@@ -26,7 +26,7 @@ export default async function RootLayout({
   children: React.ReactNode;
 }) {
   const dataPreheader = await fetcher('/annonces', {
-    next: { revalidate: 3600 },
+    next: { revalidate: 0 },
   });
   const heads = headers()
   

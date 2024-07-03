@@ -11,7 +11,7 @@ import React from 'react';
 
 export default async function Pratiques() {
   const coachData = await fetcher('/entraineurs?populate=*', {
-    next: { revalidate: 3600 },
+    next: { revalidate: 0 },
   });
 
   return (

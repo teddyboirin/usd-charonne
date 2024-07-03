@@ -7,7 +7,7 @@ import React from 'react';
 export default async function Galerie() {
   const galerieData = await fetcher(
     '/galeries?populate=*',
-    { next: { revalidate: 3600 } }
+    { next: { revalidate: 0 } }
   );
   return (
     <>

@@ -6,7 +6,7 @@ import React from 'react';
 
 export default async function Teams() {
   const data = await fetcher('/equipes?populate=*', {
-    next: { revalidate: 3600 },
+    next: { revalidate: 0 },
   });
   return (
     <>

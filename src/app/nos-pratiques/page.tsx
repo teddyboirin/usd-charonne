@@ -9,7 +9,7 @@ import Item from '@/components/Subnav/item';
 export default async function Pratiques() {
   const pratiquesData = await fetcher(
     '/pratiques?populate[0]=block&populate[1]=block.photo&sort[0]=id:asc',
-    { next: { revalidate: 3600 } }
+    { next: { revalidate: 0 } }
   );
 
   return (
