@@ -9,7 +9,7 @@ interface Props {
 function Contact({ name, tel, team }: Props) {
   return (
     <div className="rounded-basic h-fit p-2 md:p-3 bg-gray-3 grid grid-cols-[50px_.5fr_.5fr] gap-3">
-      <div className="gradient_menu text-white rounded-full h-[50px] w-[50px] flex items-center justify-center">
+      <div className="gradient_menu text-white rounded-full h-[50px] w-[50px] flex items-center justify-center text-center text-11 uppercase">
         {team}
       </div>
       <div className="w-full flex flex-col justify-center gap-y-0.25">
