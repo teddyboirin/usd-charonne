@@ -38,8 +38,8 @@ export default async function Pratiques() {
       >
         <div className="w-full grid grid-cols-1 md:flex md:flex-wrap gap-3 mt-3 items-center justify-center">
           <DownloadFile
-            title="Inscriptions 2023-2024"
-            text="Télécharger le formulaire d'inscription 2023-2024"
+            title="Inscriptions 2024-2025"
+            text="Télécharger le formulaire d'inscription 2024-2025"
             file="/docs/inscription.pdf"
           />
           <DownloadFile
