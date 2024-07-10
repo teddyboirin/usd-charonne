@@ -13,7 +13,7 @@ export default function TeamHead({description}: Props) {
       <div className="w-full order-1 md:order-0">
           <Markdown className="text-dark-1 leading-normal text-14 md:text-16">{description}</Markdown>
       </div>
-      <Ranking />
+      {/* <Ranking /> */}
     </div>
   );
 }

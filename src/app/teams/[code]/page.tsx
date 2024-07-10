@@ -24,7 +24,7 @@ export default async function TeamItem({ params }) {
     <>
       <BasicHead
         title={data.data[0]?.attributes.nom}
-        image={data.data[0]?.attributes.photo.data.attributes.url}
+        image={data.data[0]?.attributes.photo.data?.attributes?.url}
       />
       <Container>
         <>
@@ -51,11 +51,14 @@ export default async function TeamItem({ params }) {
             <div>Retour</div>
           </Link>
           <TeamHead description={data.data[0]?.attributes.description} />
-          <H2
-            title="Joueurs"
-            color="black"
-            className="mb-4 mt-4 md:mt-0 font-bold"
-          />
+          {dataPlayer?.data.length > 0 && (
+            <H2
+              title="Joueurs"
+              color="black"
+              className="mb-4 mt-4 md:mt-0 font-bold"
+            />
+          )}
+
           <section className="grid grid-cols-1 md:grid-cols-4 gap-6 pb-8">
             {dataPlayer?.data?.map((player, index) => (
               <Player
