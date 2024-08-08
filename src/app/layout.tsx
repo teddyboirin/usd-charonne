@@ -1,11 +1,11 @@
 import { fetcher } from '@/helpers/utils';
-import { headers } from "next/headers";
+import { headers } from 'next/headers';
 import Header from '@/components/Header';
 import './globals.scss';
 import Preheader from '@/components/Preheader';
 import Footer from '@/components/Footer';
-import Fv144 from '../../public/assets/favicons/fv144.png'
-import Fv96 from '../../public/assets/favicons/fv96.png'
+import Fv144 from '../../public/assets/favicons/fv144.png';
+import Fv96 from '../../public/assets/favicons/fv96.png';
 export const metadata = {
   title: 'USD Charonne',
   description: 'Club de basket - Paris 20',
@@ -19,7 +19,7 @@ export const metadata = {
     },
   },
 };
-
+const maintenance = true;
 export default async function RootLayout({
   children,
 }: {
@@ -28,15 +28,21 @@ export default async function RootLayout({
   const dataPreheader = await fetcher('/annonces', {
     next: { revalidate: 0 },
   });
-  const heads = headers()
-  
+  const heads = headers();
+
   return (
     <html lang="fr">
       <body>
-        <Preheader data={dataPreheader?.data} />
-        <Header />
-        {children}
-        <Footer />
+        {!maintenance ? (
+          <>
+            <Preheader data={dataPreheader?.data} />
+            <Header />
+            {children}
+            <Footer />
+          </>
+        ) : (
+          children
+        )}
       </body>
     </html>
   );

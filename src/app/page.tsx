@@ -3,6 +3,8 @@ import Head from '@/components/Head';
 import ImageSide from '@/components/ImageSide';
 import LastResults from '@/components/LastResults';
 import H2 from '@/components/Titles/h2';
+import Logo from '@/components/icons/logo';
+import H5 from '@/components/Titles/h5';
 
 export default async function Home() {
   const dataSlider = await fetcher(`/sliders?populate=*`);
@@ -10,6 +12,19 @@ export default async function Home() {
     '/homepages?populate[0]=homepage&populate[1]=homepage.photo'
   );
   const dataResultats = await fetcher('/resultats');
+
+  const maintenance = true;
+
+  if (maintenance) {
+    return (
+      <div className="h-screen bg-black w-full text-white flex items-center justify-center flex-col gap-3">
+        <Logo />
+        <H2 title="Le site est actuellement en maintenance." />
+        <H5 title="Merci de revenir plus tard." />
+      </div>
+    );
+  }
+
   return (
     <>
       <Head data={dataSlider} />
