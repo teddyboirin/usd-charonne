@@ -17,9 +17,9 @@ export default async function Home() {
 
   if (maintenance) {
     return (
-      <div className="h-screen bg-black w-full text-white flex items-center justify-center flex-col gap-3">
+      <div className="h-screen bg-black w-full text-white flex items-center justify-center flex-col gap-3 px-3">
         <Logo />
-        <H2 title="Le site est actuellement en maintenance." />
+        <H2 title="Le site est actuellement en maintenance." center />
         <H5 title="Merci de revenir plus tard." />
       </div>
     );
