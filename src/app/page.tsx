@@ -13,7 +13,7 @@ export default async function Home() {
   );
   const dataResultats = await fetcher('/resultats');
 
-  const maintenance = true;
+  const maintenance = false;
 
   if (maintenance) {
     return (
@@ -28,10 +28,7 @@ export default async function Home() {
   return (
     <>
       <Head data={dataSlider} />
-      <section className="bg-black p-6 w-full flex flex-col md:items-center gap-6">
-        <H2 title="Derniers résultats" uppercase center />
-        <LastResults data={dataResultats?.data} />
-      </section>
+      <LastResults data={dataResultats?.data} />
       {dataHomepage?.data?.map((item, index) => (
         <ImageSide
           key={index}

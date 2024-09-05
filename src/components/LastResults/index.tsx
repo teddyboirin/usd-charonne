@@ -1,3 +1,5 @@
+import H2 from "../Titles/h2";
+
 export default function LastResults({ data }) {
   const returnResult = (resultA, resultB) => {
     if (resultA > resultB) {
@@ -26,17 +28,23 @@ export default function LastResults({ data }) {
       </>
     );
   };
+  if (!data.length) {
+    return null;
+  }
   return (
-    <div className="min-w-[100%] md:min-w-[680px] gradient_ranking rounded-basic p-2 md:p-4 border-[red] grid grid-cols-[.4fr_.05fr_.4fr_.2fr] md:grid-cols-[.4fr_.1fr_.4fr_.1fr] gap-2 md:gap-3 text-white">
-      {data?.map((item, index) => (
-        <Item
-          key={index}
-          teamA={item.attributes.team_a}
-          teamB={item.attributes.team_b}
-          resultA={item.attributes.score_team_a}
-          resultB={item.attributes.score_team_b}
-        />
-      ))}
-    </div>
+    <section className="bg-black p-6 w-full flex flex-col md:items-center gap-6">
+      <H2 title="Derniers résultats" uppercase center />
+      <div className="min-w-[100%] md:min-w-[680px] gradient_ranking rounded-basic p-2 md:p-4 border-[red] grid grid-cols-[.4fr_.05fr_.4fr_.2fr] md:grid-cols-[.4fr_.1fr_.4fr_.1fr] gap-2 md:gap-3 text-white">
+        {data?.map((item, index) => (
+          <Item
+            key={index}
+            teamA={item.attributes.team_a}
+            teamB={item.attributes.team_b}
+            resultA={item.attributes.score_team_a}
+            resultB={item.attributes.score_team_b}
+          />
+        ))}
+      </div>
+    </section>
   );
 }

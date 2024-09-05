@@ -56,7 +56,7 @@ export default function Footer() {
           </ul>
         </div>
       </Container>
-      <div className="mt-6 flex items-center justify-center w-full text-12 md:text-10 border_footer pt-4 md:py-4">
+      <div className="mt-6 flex items-center justify-center w-full text-10 md:text-[9px] border_footer pt-4 md:py-4">
         <p>
           Réalisé par{' '}
           <a href="https://www.teddyboirin.com/" target="_blank">

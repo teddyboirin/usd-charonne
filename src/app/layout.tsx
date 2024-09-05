@@ -19,7 +19,7 @@ export const metadata = {
     },
   },
 };
-const maintenance = true;
+const maintenance = false;
 export default async function RootLayout({
   children,
 }: {
