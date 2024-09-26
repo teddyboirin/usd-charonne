@@ -18,8 +18,6 @@ const DynamicOpen = dynamic(() => import('./Open'), {
 function GalerieItem({ imageLink, title, imageLinkFull }: Props) {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const handlePicture = (action) => {
-    console.log('ok');
-
     if (action === 'open') {
       document.body.classList.add('overflow-hidden');
       setIsOpen(true);
