@@ -26,6 +26,7 @@ export default function SliderItem({ title, desc, img, button }: Props) {
           backgroundImage: `url('${img}')`,
           backgroundSize: 'cover',
           backgroundRepeat: 'no-repeat',
+          backgroundPosition: 'center'
         }}
         initial={{
           opacity: 0,
@@ -39,6 +40,7 @@ export default function SliderItem({ title, desc, img, button }: Props) {
           backgroundColor: 'black',
           backgroundSize: 'cover',
           backgroundRepeat: 'no-repeat',
+          backgroundPosition: 'center'
         }}
         transition={{ type: 'spring', duration: 0.8, ease: 'easeOut' }}
         exit={{
@@ -47,6 +49,7 @@ export default function SliderItem({ title, desc, img, button }: Props) {
           backgroundSize: 'cover',
           backgroundColor: 'black',
           backgroundRepeat: 'no-repeat',
+          backgroundPosition: 'center'
         }}
       >
         <div className="min-h-[700px] md:min-h-[600px] absolute w-full p-4 md:p-7 bottom-0 flex items-center justify-end flex-col">

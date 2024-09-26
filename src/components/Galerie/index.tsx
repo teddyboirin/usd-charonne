@@ -84,7 +84,7 @@ export default function GlobalContainer({ data }) {
               className="h-[150px] md:h-[300px] relative"
               onClick={() => setOpenVideo(true)}
             >
-              <div className="absolute bottom-0 p-4 text-center bg-black w-full left-1/2 text-white z-10 -translate-x-1/2">
+              <div className="absolute bottom-0 p-1 text-12 md:text-14 md:p-4 text-center bg-filter w-full left-1/2 text-white z-10 -translate-x-1/2">
                 Vidéo SM1 VS Le Vésinet (Coupe de France)
               </div>
               <Image
