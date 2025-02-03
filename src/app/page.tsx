@@ -11,6 +11,8 @@ export default async function Home() {
   const dataHomepage = await fetcher(
     '/homepages?populate[0]=homepage&populate[1]=homepage.photo'
   );
+
+  
   const dataResultats = await fetcher('/resultats');
 
   const maintenance = false;

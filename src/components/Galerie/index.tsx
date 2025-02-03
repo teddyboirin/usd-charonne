@@ -1,5 +1,4 @@
 'use client';
-import { useWindowSize } from 'react-use';
 import Item from './Item';
 import ButtonFilter from './ButtonFilter';
 import { useCallback, useState } from 'react';
@@ -9,6 +8,7 @@ import Arrow from '../icons/Arrow';
 export default function GlobalContainer({ data }) {
   const [teamType, setTeamType] = useState<string>('');
   const [openVideo, setOpenVideo] = useState<boolean>(false);
+  const [linkVideo, setLinkVideo] = useState<string>('');
 
   const filteredTeams = useCallback(() => {
     return data?.data.filter((teamTypes) => {
@@ -33,6 +33,11 @@ export default function GlobalContainer({ data }) {
     },
     [teamType]
   );
+
+  const handleVideo = (link) => {
+    setOpenVideo(true)
+    setLinkVideo(link)
+  }
   return (
     <>
       {openVideo && (
@@ -46,7 +51,7 @@ export default function GlobalContainer({ data }) {
               <Arrow />
             </button>
             <video
-              src="https://res.cloudinary.com/dvnqnq87m/video/upload/v1727292934/Video_SM1_w3ydqb.mp4"
+              src={linkVideo}
               controls
             ></video>
           </div>
@@ -79,21 +84,53 @@ export default function GlobalContainer({ data }) {
         </div>
         <div className="my-3 md:my-6 w-full grid grid-cols-2 md:grid-cols-3 gap-1 md:gap-4">
           {teamType === 'SM1' && (
-            <button
-              type="button"
-              className="h-[150px] md:h-[300px] relative"
-              onClick={() => setOpenVideo(true)}
-            >
-              <div className="absolute bottom-0 p-1 text-12 md:text-14 md:p-4 text-center bg-filter w-full left-1/2 text-white z-10 -translate-x-1/2">
-                Vidéo SM1 VS Le Vésinet (Coupe de France)
-              </div>
-              <Image
-                fill
-                src="https://res.cloudinary.com/dvnqnq87m/image/upload/v1727294686/Capture_d_ecran_2024_09_25_a_22_04_18_1cff719f0a.png"
-                alt="cover-video-sm1"
-                objectFit="cover"
-              />
-            </button>
+            <>
+              <button
+                type="button"
+                className="h-[150px] md:h-[300px] relative"
+                onClick={() => handleVideo('https://res.cloudinary.com/dvnqnq87m/video/upload/v1738593891/Match_Ozoir_fhpcxh.mp4')}
+              >
+                <div className="absolute bottom-0 p-1 text-12 md:text-14 md:p-4 text-center bg-filter w-full left-1/2 text-white z-10 -translate-x-1/2">
+                  SM1 | Récap match VS Ozoir
+                </div>
+                <Image
+                  fill
+                  src="https://res.cloudinary.com/dvnqnq87m/image/upload/v1738592272/Capture_d_ecran_2025_02_03_a_15_17_06_ab55194134.png"
+                  alt="cover-video-sm1-ozoir"
+                  objectFit="cover"
+                />
+              </button>
+              <button
+                type="button"
+                className="h-[150px] md:h-[300px] relative"
+                 onClick={() => handleVideo('https://res.cloudinary.com/dvnqnq87m/video/upload/v1738594217/Vide%CC%81o_Pre%CC%81pa_ysdodb.mp4')}
+              >
+                <div className="absolute bottom-0 p-1 text-12 md:text-14 md:p-4 text-center bg-filter w-full left-1/2 text-white z-10 -translate-x-1/2">
+                  SM1 | Entrainement de reprise & préparation physique
+                </div>
+                <Image
+                  fill
+                  src="https://res.cloudinary.com/dvnqnq87m/image/upload/v1738592062/Capture_d_ecran_2025_02_03_a_15_13_51_7ae167dd15.png"
+                  alt="cover-video-sm1-prepa"
+                  objectFit="cover"
+                />
+              </button>
+              <button
+                type="button"
+                className="h-[150px] md:h-[300px] relative"
+                 onClick={() => handleVideo('https://res.cloudinary.com/dvnqnq87m/video/upload/v1727292934/Video_SM1_w3ydqb.mp4')}
+              >
+                <div className="absolute bottom-0 p-1 text-12 md:text-14 md:p-4 text-center bg-filter w-full left-1/2 text-white z-10 -translate-x-1/2">
+                SM1 | Récap match VS Le Vésinet (Coupe de France)
+                </div>
+                <Image
+                  fill
+                  src="https://res.cloudinary.com/dvnqnq87m/image/upload/v1727294686/Capture_d_ecran_2024_09_25_a_22_04_18_1cff719f0a.png"
+                  alt="cover-video-sm1"
+                  objectFit="cover"
+                />
+              </button>
+            </>
           )}
 
           {filteredTeams()?.map((item, index) => (
