@@ -20,7 +20,7 @@ export default async function Ecole() {
       <Container>
         <Subnav>
           <>
-            {data.data?.map((item, index) => (
+            {data?.data?.map((item, index) => (
               <Link href={`#${item.attributes.Block.id_item}`} key={index}>
                 <Item>{item.attributes.Block.titre}</Item>
               </Link>
@@ -28,7 +28,7 @@ export default async function Ecole() {
           </>
         </Subnav>
       </Container>
-      {data.data?.map((item, index) => (
+      {data?.data?.map((item, index) => (
         <ImageSide
           key={index}
           id={item.attributes.Block.id_item}

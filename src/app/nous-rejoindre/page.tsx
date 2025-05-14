@@ -77,7 +77,7 @@ export default async function Pratiques() {
         reverse
       >
         <div className="grid grid-cols-1 md:grid-cols-2 w-full gap-3">
-          {coachData.data?.map((coach, index) => {
+          {coachData?.data?.map((coach, index) => {
             return (
               <Contact
                 key={index}

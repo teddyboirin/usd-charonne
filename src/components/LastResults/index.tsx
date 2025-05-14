@@ -28,7 +28,7 @@ export default function LastResults({ data }) {
       </>
     );
   };
-  if (!data.length) {
+  if (!data?.length) {
     return null;
   }
   return (

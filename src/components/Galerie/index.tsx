@@ -14,8 +14,8 @@ export default function GlobalContainer({ data }) {
     return data?.data.filter((teamTypes) => {
       const { team } = teamTypes.attributes;
       const teamTypesFiltered = team
-        .toLowerCase()
-        .includes(teamType.toLowerCase());
+        ?.toLowerCase()
+        ?.includes(teamType.toLowerCase());
 
       return teamTypesFiltered;
     });
