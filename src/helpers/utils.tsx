@@ -13,8 +13,6 @@ export const fetcher = (url: string, options?) => fetch(`${process.env.NEXT_PUBL
   .catch((err) => {
     console.log(err);
   }).finally(() => {
-    console.log(`${process.env.BACKEND_API}${url}`);
-    
   });
 
 

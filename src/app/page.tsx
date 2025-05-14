@@ -13,7 +13,7 @@ export default async function Home() {
   );
 
   
-  const dataResultats = await fetcher('/resultats');
+  // const dataResultats = await fetcher('/resultats');
 
   const maintenance = false;
 
@@ -30,7 +30,7 @@ export default async function Home() {
   return (
     <>
       <Head data={dataSlider} />
-      <LastResults data={dataResultats?.data} />
+      {/* <LastResults data={dataResultats?.data} /> */}
       {dataHomepage?.data?.map((item, index) => (
         <ImageSide
           key={index}
