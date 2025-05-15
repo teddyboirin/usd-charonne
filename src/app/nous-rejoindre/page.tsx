@@ -38,7 +38,7 @@ export default async function Pratiques() {
       >
         <div className="w-full grid grid-cols-1 md:flex md:flex-wrap gap-3 mt-3 items-center justify-center">
           <DownloadFile
-            title="Inscriptions 2024-2025"
+            title="Inscriptions 2025-2026"
             text="Télécharger le formulaire d'inscription 2024-2025"
             file="/docs/inscription.pdf"
           />
@@ -51,16 +51,6 @@ export default async function Pratiques() {
             title="Certificat médical"
             text="Télécharger le formulaire de certificat médical"
             file="/docs/certificat-medical.pdf"
-          />
-          <DownloadFile
-            title="INSCRIPTIONS LOISIRS SENIORS"
-            text="Télécharger le formulaire d'inscription loisirs séniors"
-            file="/docs/inscription-loisir-senior.pdf"
-          />
-          <DownloadFile
-            title="AGES DES SURCLASSEMENTS"
-            text="Télécharger le formulaire des âges des surclassements"
-            file="/docs/surclassement.pdf"
           />
           <DownloadFile
             title="Planning des entrainements"
