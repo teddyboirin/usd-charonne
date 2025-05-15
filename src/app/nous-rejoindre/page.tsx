@@ -67,6 +67,11 @@ export default async function Pratiques() {
             text="Télécharger le planning des entrainements"
             file="/docs/planning.pdf"
           />
+          <DownloadFile
+            title="Catégories d'âges"
+            text="Télécharger les catégories d'âges"
+            file="/docs/categories.pdf"
+          />
         </div>
       </ImageSide>
       <ImageSide
