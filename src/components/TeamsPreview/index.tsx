@@ -1,4 +1,4 @@
-import { fetcher } from '@/helpers/utils';
+import { fetcher, getTeamPhotoUrl } from '@/helpers/utils';
 import TeamsItem from '@/components/TeamsItem';
 import SectionHeader from '@/components/SectionHeader';
 import Container from '@/components/Container';
@@ -8,12 +8,18 @@ import ScrollReveal from '@/components/ScrollReveal';
 
 const PRENATIONAL_TEAMS = ['SM1', 'SF1'];
 
-function findPrenationalTeams(allTeams: { attributes: { nom?: string; code?: string } }[]) {
+type TeamEntry = {
+  attributes: {
+    nom?: string;
+    code?: string;
+    photo?: Parameters<typeof getTeamPhotoUrl>[0];
+  };
+};
+
+function findPrenationalTeams(allTeams: TeamEntry[]) {
   return PRENATIONAL_TEAMS.map((name) =>
-    allTeams.find(
-      (team) => team.attributes.nom?.trim().toUpperCase() === name
-    )
-  ).filter(Boolean);
+    allTeams.find((team) => team.attributes.nom?.trim().toUpperCase() === name),
+  ).filter((team): team is TeamEntry => Boolean(team));
 }
 
 export default async function TeamsPreview() {
@@ -21,7 +27,7 @@ export default async function TeamsPreview() {
     next: { revalidate: 120 },
   });
 
-  const allTeams = data?.data || [];
+  const allTeams: TeamEntry[] = data?.data || [];
   const prenationalTeams = findPrenationalTeams(allTeams);
 
   if (!prenationalTeams.length) return null;
@@ -40,11 +46,8 @@ export default async function TeamsPreview() {
           {prenationalTeams.map((team, index) => (
             <ScrollReveal key={team.attributes.code} delay={index * 0.1}>
               <TeamsItem
-                title={team.attributes.nom}
-                img={
-                  team.attributes.photo.data?.attributes?.formats?.large?.url ||
-                  team.attributes.photo.data?.attributes?.url
-                }
+                title={team.attributes.nom ?? ''}
+                img={getTeamPhotoUrl(team.attributes.photo)}
                 link={`/teams/${team.attributes.code}`}
                 prenational
               />

@@ -20,3 +20,22 @@ export const fetcher = (url: string, options?) => fetch(`${process.env.NEXT_PUBL
     if (width > 768) return true;
     return false
   };
+
+type StrapiPhoto = {
+  data?: {
+    attributes?: {
+      url?: string;
+      formats?: {
+        large?: { url?: string };
+      };
+    };
+  } | null;
+};
+
+const DEFAULT_TEAM_IMAGE =
+  'https://images.unsplash.com/photo-1546519638-68fb1504f6cf?q=80&w=2090&auto=format&fit=crop';
+
+export function getTeamPhotoUrl(photo?: StrapiPhoto): string {
+  const attrs = photo?.data?.attributes;
+  return attrs?.formats?.large?.url || attrs?.url || DEFAULT_TEAM_IMAGE;
+}
