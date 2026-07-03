@@ -3,8 +3,9 @@ import BasicHead from '@/components/BasicHead';
 import Container from '@/components/Container';
 import Player from '@/components/Player';
 import TeamHead from '@/components/TeamHead';
-import H2 from '@/components/Titles/h2';
-import Link from 'next/link';
+import BackLink from '@/components/BackLink';
+import SectionHeader from '@/components/SectionHeader';
+import ScrollReveal from '@/components/ScrollReveal';
 
 export default async function TeamItem({ params }) {
   const data = await fetcher(
@@ -20,49 +21,33 @@ export default async function TeamItem({ params }) {
     }
   );
 
+  const team = data.data[0]?.attributes;
+  const players = dataPlayer?.data || [];
+
   return (
     <>
       <BasicHead
-        title={data.data[0]?.attributes.nom}
-        image={data.data[0]?.attributes.photo.data?.attributes?.url}
+        title={team?.nom}
+        image={team?.photo?.data?.attributes?.url}
       />
-      <Container>
-        <>
-          <Link
-            href="/teams"
-            className="bg-dark-1 p-2 w-fit flex gap-1 mt-3 text-white text-13 items-center justify-center rounded-basic"
-          >
-            <div>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                strokeWidth={1.5}
-                stroke="currentColor"
-                className="w-3 h-3"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M9 15 3 9m0 0 6-6M3 9h12a6 6 0 0 1 0 12h-3"
-                />
-              </svg>
-            </div>
-            <div>Retour</div>
-          </Link>
-          <TeamHead description={data.data[0]?.attributes.description} />
-          {dataPlayer?.data.length > 0 && (
-            <H2
-              title="Joueurs"
-              color="black"
-              className="mb-4 mt-4 md:mt-0 font-bold"
-            />
-          )}
+      <Container className="pb-12">
+        <BackLink href="/teams" label="Toutes les équipes" />
+        <TeamHead description={team?.description} />
 
-          <section className="grid grid-cols-1 md:grid-cols-4 gap-6 pb-8">
-            {dataPlayer?.data?.map((player, index) => (
+        {players.length > 0 && (
+          <ScrollReveal>
+            <SectionHeader
+              title="Effectif"
+              subtitle={`${players.length} membre${players.length > 1 ? 's' : ''} dans l'effectif`}
+              className="mt-8"
+            />
+          </ScrollReveal>
+        )}
+
+        <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 md:gap-6 pb-8">
+          {players.map((player, index) => (
+            <ScrollReveal key={index} delay={(index % 4) * 0.08}>
               <Player
-                key={index}
                 name={player.attributes.nom}
                 poste={player.attributes.poste}
                 photo={
@@ -71,9 +56,9 @@ export default async function TeamItem({ params }) {
                     : 'https://res.cloudinary.com/dzljuty9d/image/upload/v1715694595/user_a5c8ea2906.jpg'
                 }
               />
-            ))}
-          </section>
-        </>
+            </ScrollReveal>
+          ))}
+        </section>
       </Container>
     </>
   );

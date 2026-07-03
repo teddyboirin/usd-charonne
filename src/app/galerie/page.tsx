@@ -2,20 +2,29 @@ import { fetcher } from '@/helpers/utils';
 import BasicHead from '@/components/BasicHead';
 import Container from '@/components/Container';
 import GalerieContainer from '@/components/Galerie';
+import SectionHeader from '@/components/SectionHeader';
+import ScrollReveal from '@/components/ScrollReveal';
 import React from 'react';
 
 export default async function Galerie() {
-  const galerieData = await fetcher(
-    '/galeries?populate=*',
-    { next: { revalidate: 120 } }
-  );
+  const galerieData = await fetcher('/galeries?populate=*', {
+    next: { revalidate: 120 },
+  });
+
   return (
     <>
       <BasicHead
         title="Galerie"
         image="https://images.unsplash.com/photo-1523142096306-cca37b5aa001?q=80&w=3570&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
       />
-      <Container className="mt-6">
+      <Container className="py-10 md:py-12 pb-12">
+        <ScrollReveal>
+          <SectionHeader
+            title="Photos & vidéos"
+            subtitle="Revivez les meilleurs moments du club — matchs, entraînements et événements."
+            className="mb-8"
+          />
+        </ScrollReveal>
         <GalerieContainer data={galerieData} />
       </Container>
     </>

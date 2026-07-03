@@ -1,19 +1,21 @@
 import React from 'react';
-import H4 from '../Titles/h4';
-import Ranking from '../Ranking';
 import Markdown from 'react-markdown';
+import ScrollReveal from '../ScrollReveal';
 
 type Props = {
   description: string;
-}
+};
 
-export default function TeamHead({description}: Props) {
+export default function TeamHead({ description }: Props) {
+  if (!description) return null;
+
   return (
-    <div className="mt-[30px] md:mt-[50px] grid md:grid-cols-[8fr_2fr] gap-3 md:gap-6 py-2 md:py-3">
-      <div className="w-full order-1 md:order-0">
-          <Markdown className="text-dark-1 leading-normal text-14 md:text-16">{description}</Markdown>
+    <ScrollReveal>
+      <div className="mt-4 md:mt-6 p-5 md:p-6 bg-white rounded-xl border border-gray-3/50 shadow-card">
+        <Markdown className="text-gray-2 leading-relaxed text-14 md:text-16 markdown-content">
+          {description}
+        </Markdown>
       </div>
-      {/* <Ranking /> */}
-    </div>
+    </ScrollReveal>
   );
 }

@@ -1,40 +1,40 @@
-import H2 from "../Titles/h2";
+import H2 from '../Titles/h2';
 
 export default function LastResults({ data }) {
-  const returnResult = (resultA, resultB) => {
+  const returnResult = (resultA: number, resultB: number) => {
     if (resultA > resultB) {
-      return <div className="h-[8px] w-[8px] bg-[#2dfa2d] rounded-full"></div>;
-    } else {
-      return <div className="h-[8px] w-[8px] bg-[red] rounded-full"></div>;
+      return <div className="h-2 w-2 bg-green-500 rounded-full" />;
     }
+    return <div className="h-2 w-2 bg-red rounded-full" />;
   };
-  const Item = ({ teamA, teamB, resultA, resultB }) => {
-    return (
-      <>
-        <div className="flex justify-center items-center gap-1 md:gap-2 text-12 md:text-16 flex-col md:flex-row text-center">
-          {returnResult(resultA, resultB)}
-          {teamA}
-        </div>
-        <div className="flex justify-center items-center text-12 md:text-14">
-          VS
-        </div>
-        <div className="flex justify-center items-center gap-1 md:gap-2 text-14 md:text-16 flex-col md:flex-row text-center">
-          {returnResult(resultB, resultA)}
-          {teamB}
-        </div>
-        <div className="flex justify-center items-center text-12 md:text-16">
-          {resultA}-{resultB}
-        </div>
-      </>
-    );
-  };
+
+  const Item = ({ teamA, teamB, resultA, resultB }) => (
+    <>
+      <div className="flex justify-center items-center gap-2 text-12 md:text-14 flex-col md:flex-row text-center font-display uppercase tracking-wide">
+        {returnResult(resultA, resultB)}
+        {teamA}
+      </div>
+      <div className="flex justify-center items-center text-12 text-accent font-display">
+        VS
+      </div>
+      <div className="flex justify-center items-center gap-2 text-12 md:text-14 flex-col md:flex-row text-center font-display uppercase tracking-wide">
+        {returnResult(resultB, resultA)}
+        {teamB}
+      </div>
+      <div className="flex justify-center items-center font-display text-16 md:text-20 font-bold text-accent">
+        {resultA} - {resultB}
+      </div>
+    </>
+  );
+
   if (!data?.length) {
     return null;
   }
+
   return (
-    <section className="bg-black p-6 w-full flex flex-col md:items-center gap-6">
+    <section className="bg-dark-1 py-10 md:py-12 w-full flex flex-col items-center gap-6 border-y border-white/10">
       <H2 title="Derniers résultats" uppercase center />
-      <div className="min-w-[100%] md:min-w-[680px] gradient_ranking rounded-basic p-2 md:p-4 border-[red] grid grid-cols-[.4fr_.05fr_.4fr_.2fr] md:grid-cols-[.4fr_.1fr_.4fr_.1fr] gap-2 md:gap-3 text-white">
+      <div className="w-[90%] max-w-[720px] gradient_ranking rounded-xl p-4 md:p-6 grid grid-cols-[.4fr_.05fr_.4fr_.2fr] md:grid-cols-[.4fr_.1fr_.4fr_.1fr] gap-3 md:gap-4 text-white">
         {data?.map((item, index) => (
           <Item
             key={index}

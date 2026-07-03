@@ -10,15 +10,15 @@ interface Props {
 
 function H2({ title, center, color = 'white', className, uppercase }: Props) {
   return (
-    <h3
-      className={`${className || ''} text-3xl md:text-5xl font-semibold ${
+    <h2
+      className={`font-display ${className || ''} text-3xl md:text-hero font-bold ${
         color === 'black' ? 'text-dark-1' : ''
       } ${color === 'white' ? 'text-white' : ''} ${
         center ? 'text-center' : ''
-      } ${uppercase ? 'uppercase' : ''}`}
+      } ${uppercase ? 'uppercase tracking-wide' : ''}`}
     >
       {title}
-    </h3>
+    </h2>
   );
 }
 

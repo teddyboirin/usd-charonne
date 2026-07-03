@@ -10,7 +10,7 @@ interface Props {
 function H3({ title, center, color = 'white', className }: Props) {
   return (
     <h3
-      className={`${className || ''} text-2xl md:text-5xl font-extrabold ${
+      className={`font-display ${className || ''} text-2xl md:text-5xl font-bold uppercase tracking-wide ${
         color === 'black' ? 'text-dark-1' : ''
       } ${color === 'white' ? 'text-white' : ''} ${
         center ? 'text-center' : ''

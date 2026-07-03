@@ -1,9 +1,28 @@
 'use client';
 import Item from './Item';
 import ButtonFilter from './ButtonFilter';
-import { useCallback, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import Image from 'next/image';
-import Arrow from '../icons/Arrow';
+
+const FILTERS = ['', 'SM1', 'SM2', 'SF1', 'SF2'] as const;
+
+const SM1_VIDEOS = [
+  {
+    src: 'https://res.cloudinary.com/dvnqnq87m/video/upload/v1738593891/Match_Ozoir_fhpcxh.mp4',
+    thumb: 'https://res.cloudinary.com/dvnqnq87m/image/upload/v1738592272/Capture_d_ecran_2025_02_03_a_15_17_06_ab55194134.png',
+    title: 'SM1 | Récap match VS Ozoir',
+  },
+  {
+    src: 'https://res.cloudinary.com/dvnqnq87m/video/upload/v1738594217/Vide%CC%81o_Pre%CC%81pa_ysdodb.mp4',
+    thumb: 'https://res.cloudinary.com/dvnqnq87m/image/upload/v1738592062/Capture_d_ecran_2025_02_03_a_15_13_51_7ae167dd15.png',
+    title: 'SM1 | Entraînement de reprise & préparation physique',
+  },
+  {
+    src: 'https://res.cloudinary.com/dvnqnq87m/video/upload/v1727292934/Video_SM1_w3ydqb.mp4',
+    thumb: 'https://res.cloudinary.com/dvnqnq87m/image/upload/v1727294686/Capture_d_ecran_2024_09_25_a_22_04_18_1cff719f0a.png',
+    title: 'SM1 | Récap match VS Le Vésinet (Coupe de France)',
+  },
+];
 
 export default function GlobalContainer({ data }) {
   const [teamType, setTeamType] = useState<string>('');
@@ -11,129 +30,112 @@ export default function GlobalContainer({ data }) {
   const [linkVideo, setLinkVideo] = useState<string>('');
 
   const filteredTeams = useCallback(() => {
+    if (!teamType) return data?.data || [];
     return data?.data.filter((teamTypes) => {
       const { team } = teamTypes.attributes;
-      const teamTypesFiltered = team
-        ?.toLowerCase()
-        ?.includes(teamType.toLowerCase());
-
-      return teamTypesFiltered;
+      return team?.toLowerCase()?.includes(teamType.toLowerCase());
     });
   }, [data?.data, teamType]);
 
   const selectTeam = useCallback(
-    (value) => {
-      {
-        if (teamType !== value) {
-          setTeamType(value);
-        } else {
-          setTeamType('');
-        }
-      }
+    (value: string) => {
+      setTeamType(teamType !== value ? value : '');
     },
     [teamType]
   );
 
-  const handleVideo = (link) => {
-    setOpenVideo(true)
-    setLinkVideo(link)
-  }
+  const handleVideo = (link: string) => {
+    setOpenVideo(true);
+    setLinkVideo(link);
+  };
+
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setOpenVideo(false);
+    };
+    if (openVideo) {
+      document.body.style.overflow = 'hidden';
+      window.addEventListener('keydown', onKey);
+    }
+    return () => {
+      document.body.style.overflow = '';
+      window.removeEventListener('keydown', onKey);
+    };
+  }, [openVideo]);
+
+  const photos = filteredTeams();
+  const showVideos = teamType === '' || teamType === 'SM1';
+
   return (
     <>
       {openVideo && (
-        <div className="h-screen w-screen bg-filter absolute left-0 top-0 z-[100]">
-          <div className="absolute w-[95vw] h-[95vh] bg-[black] z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+        <div
+          className="fixed inset-0 bg-black/90 z-[100] flex items-center justify-center p-4"
+          onClick={() => setOpenVideo(false)}
+          role="dialog"
+          aria-modal="true"
+        >
+          <div
+            className="relative w-full max-w-4xl aspect-video bg-black rounded-xl overflow-hidden"
+            onClick={(e) => e.stopPropagation()}
+          >
             <button
               type="button"
-              className="absolute right-4 top-4 text-black z-[100] bg-black text-12 p-2"
+              aria-label="Fermer la vidéo"
+              className="absolute right-3 top-3 z-10 w-10 h-10 rounded-full bg-white/10 hover:bg-red text-white flex items-center justify-center transition-colors backdrop-blur-sm"
               onClick={() => setOpenVideo(false)}
             >
-              <Arrow />
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}>
+                <path strokeLinecap="round" d="M6 6l12 12M18 6L6 18" />
+              </svg>
             </button>
-            <video
-              src={linkVideo}
-              controls
-            ></video>
+            <video src={linkVideo} controls autoPlay className="w-full h-full object-contain" />
           </div>
         </div>
       )}
-      <section className="w-full bg-gray-0">
-        <div className="w-full flex items-center justify-center">
-          <div className="flex gap-3 items-center justify-center max-w-[80%] md:max-w-[600px]">
-            <ButtonFilter
-              value="SM1"
-              onClick={() => selectTeam('SM1')}
-              isActive={teamType === 'SM1'}
-            />
-            <ButtonFilter
-              value="SM2"
-              onClick={() => selectTeam('SM2')}
-              isActive={teamType === 'SM2'}
-            />
-            <ButtonFilter
-              value="SF1"
-              onClick={() => selectTeam('SF1')}
-              isActive={teamType === 'SF1'}
-            />
-            <ButtonFilter
-              value="SF2"
-              onClick={() => selectTeam('SF2')}
-              isActive={teamType === 'SF2'}
-            />
-          </div>
-        </div>
-        <div className="my-3 md:my-6 w-full grid grid-cols-2 md:grid-cols-3 gap-1 md:gap-4">
-          {teamType === 'SM1' && (
-            <>
-              <button
-                type="button"
-                className="h-[150px] md:h-[300px] relative"
-                onClick={() => handleVideo('https://res.cloudinary.com/dvnqnq87m/video/upload/v1738593891/Match_Ozoir_fhpcxh.mp4')}
-              >
-                <div className="absolute bottom-0 p-1 text-12 md:text-14 md:p-4 text-center bg-filter w-full left-1/2 text-white z-10 -translate-x-1/2">
-                  SM1 | Récap match VS Ozoir
-                </div>
-                <Image
-                  fill
-                  src="https://res.cloudinary.com/dvnqnq87m/image/upload/v1738592272/Capture_d_ecran_2025_02_03_a_15_17_06_ab55194134.png"
-                  alt="cover-video-sm1-ozoir"
-                  objectFit="cover"
-                />
-              </button>
-              <button
-                type="button"
-                className="h-[150px] md:h-[300px] relative"
-                 onClick={() => handleVideo('https://res.cloudinary.com/dvnqnq87m/video/upload/v1738594217/Vide%CC%81o_Pre%CC%81pa_ysdodb.mp4')}
-              >
-                <div className="absolute bottom-0 p-1 text-12 md:text-14 md:p-4 text-center bg-filter w-full left-1/2 text-white z-10 -translate-x-1/2">
-                  SM1 | Entrainement de reprise & préparation physique
-                </div>
-                <Image
-                  fill
-                  src="https://res.cloudinary.com/dvnqnq87m/image/upload/v1738592062/Capture_d_ecran_2025_02_03_a_15_13_51_7ae167dd15.png"
-                  alt="cover-video-sm1-prepa"
-                  objectFit="cover"
-                />
-              </button>
-              <button
-                type="button"
-                className="h-[150px] md:h-[300px] relative"
-                 onClick={() => handleVideo('https://res.cloudinary.com/dvnqnq87m/video/upload/v1727292934/Video_SM1_w3ydqb.mp4')}
-              >
-                <div className="absolute bottom-0 p-1 text-12 md:text-14 md:p-4 text-center bg-filter w-full left-1/2 text-white z-10 -translate-x-1/2">
-                SM1 | Récap match VS Le Vésinet (Coupe de France)
-                </div>
-                <Image
-                  fill
-                  src="https://res.cloudinary.com/dvnqnq87m/image/upload/v1727294686/Capture_d_ecran_2024_09_25_a_22_04_18_1cff719f0a.png"
-                  alt="cover-video-sm1"
-                  objectFit="cover"
-                />
-              </button>
-            </>
-          )}
 
-          {filteredTeams()?.map((item, index) => (
+      <section className="w-full">
+        <div className="flex flex-wrap gap-2 items-center justify-center mb-6">
+          {FILTERS.map((filter) => (
+            <ButtonFilter
+              key={filter || 'all'}
+              value={filter || 'Tous'}
+              onClick={() => selectTeam(filter)}
+              isActive={teamType === filter}
+            />
+          ))}
+        </div>
+
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-2 md:gap-4">
+          {showVideos &&
+            SM1_VIDEOS.map((video) => (
+              <button
+                key={video.src}
+                type="button"
+                className="group relative h-[160px] md:h-[280px] rounded-xl overflow-hidden"
+                onClick={() => handleVideo(video.src)}
+              >
+                <Image
+                  fill
+                  src={video.thumb}
+                  alt={video.title}
+                  className="object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+                <div className="absolute inset-0 bg-black/30 group-hover:bg-black/40 transition-colors" />
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <div className="w-12 h-12 rounded-full bg-red/90 flex items-center justify-center group-hover:scale-110 transition-transform">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="white">
+                      <path d="M8 5v14l11-7z" />
+                    </svg>
+                  </div>
+                </div>
+                <div className="absolute bottom-0 p-2 md:p-3 text-11 md:text-13 text-center bg-gradient-to-t from-black/80 to-transparent w-full text-white font-display uppercase tracking-wide">
+                  {video.title}
+                </div>
+              </button>
+            ))}
+
+          {photos?.map((item, index) => (
             <Item
               key={index}
               imageLink={`${item.attributes.photo.data?.attributes.formats.large.url}`}
@@ -142,6 +144,13 @@ export default function GlobalContainer({ data }) {
             />
           ))}
         </div>
+
+        {photos?.length === 0 && !showVideos && (
+          <div className="text-center py-16 text-gray-2">
+            <p className="font-display text-18 uppercase tracking-wide mb-2">Aucun contenu</p>
+            <p className="text-14">Aucune photo pour cette catégorie pour le moment.</p>
+          </div>
+        )}
       </section>
     </>
   );

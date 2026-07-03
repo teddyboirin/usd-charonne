@@ -1,9 +1,12 @@
+import { memo } from 'react';
+
 interface Props {
   children: string;
   red?: boolean;
   blue?: boolean;
   white?: boolean;
   black?: boolean;
+  outline?: boolean;
   className?: string;
   onClick?: () => void;
 }
@@ -14,22 +17,27 @@ export default function Button({
   blue,
   white,
   black,
+  outline,
   className,
   onClick,
 }: Props) {
   return (
     <button
       type="button"
-      className={`${
+      className={`font-display uppercase tracking-wider ${
         className || ''
-      } py-2 px-3 md:py-3 md:px-4 text-14 md:text-16 rounded-basic duration-300 ${
-        red ? 'bg-red hover:bg-blue ' : ''
-      } ${blue ? 'bg-blue hover:bg-red ' : ''} ${
+      } py-2.5 px-5 md:py-3 md:px-6 text-13 md:text-14 rounded-basic duration-300 transition-all ${
+        red ? 'bg-red hover:bg-blue text-white hover:shadow-glow' : ''
+      } ${blue ? 'bg-blue hover:bg-red text-white' : ''} ${
         white
-          ? 'bg-white text-black hover:bg-transparent border border-white hover:text-white'
+          ? 'bg-transparent text-white border border-white hover:bg-white hover:text-dark-1'
           : ''
       } ${
         black ? 'bg-dark-1 text-white hover:bg-white hover:text-dark-1' : ''
+      } ${
+        outline
+          ? 'bg-transparent border border-red text-red hover:bg-red hover:text-white'
+          : ''
       }`}
       onClick={onClick}
     >

@@ -8,7 +8,7 @@ interface Props {
 function H1({ title, className }: Props) {
   return (
     <h1
-      className={`text-4xl md:text-6xl font-extrabold text-white text-center ${
+      className={`font-display text-4xl md:text-6xl font-bold text-white text-center uppercase tracking-wide ${
         className || ''
       }`}
     >

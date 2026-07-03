@@ -4,6 +4,7 @@ import Header from '@/components/Header';
 import './globals.scss';
 import Preheader from '@/components/Preheader';
 import Footer from '@/components/Footer';
+import { oswald, inter } from './fonts';
 import Fv144 from '../../public/assets/favicons/fv144.png';
 import Fv96 from '../../public/assets/favicons/fv96.png';
 export const metadata = {
@@ -31,8 +32,8 @@ export default async function RootLayout({
   const heads = headers();
 
   return (
-    <html lang="fr">
-      <body>
+    <html lang="fr" className={`${oswald.variable} ${inter.variable}`}>
+      <body className="font-sans antialiased">
         {!maintenance ? (
           <>
             <Preheader data={dataPreheader?.data} />

@@ -10,23 +10,29 @@ interface Props {
 
 function BasicHead({ image, title }: Props) {
   return (
-    <div
-      className="relative bg-black w-full min-h-[270px] md:min-h-[390px] flex items-center justify-center"
-      style={{
-        backgroundImage: `url('${image}')`,
-        backgroundPosition: 'center',
-        filter: 'grayscale(30%)',
-        backgroundSize: 'cover'
-      }}
-    >
-      <div className="absolute h-[130px] gradient_filter_head bottom-0 w-full"></div>
+    <div className="relative bg-dark-1 w-full min-h-[300px] md:min-h-[420px] flex items-center justify-center overflow-hidden">
+      {image && (
+        <div
+          className="absolute inset-0"
+          style={{
+            backgroundImage: `url('${image}')`,
+            backgroundPosition: 'center',
+            backgroundSize: 'cover',
+            filter: 'grayscale(40%) brightness(0.5)',
+          }}
+        />
+      )}
+      <div className="absolute inset-0 gradient_hero" />
+      <div className="absolute inset-0 court-pattern" />
+      <div className="absolute bottom-0 w-full h-1 gradient_brand" />
+
       <motion.div
-        initial={{ opacity: 0, y: -45 }}
+        initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ type: 'just', duration: 0.3, ease: 'easeInOut' }}
-        exit={{ opacity: 0, y: -45 }}
+        transition={{ duration: 0.5, ease: 'easeOut' }}
+        className="relative z-10 px-4"
       >
-        <H1 title={title} className="mt-10 uppercase max-w-[400px]" />
+        <H1 title={title} className="mt-16 md:mt-20" />
       </motion.div>
     </div>
   );

@@ -8,9 +8,14 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 
 function Preheader({ data }) {
-
   return (
-    <div className="absolute top-0 flex items-center justify-center w-full p-1.5 bg-dark-1 text-white z-50 text-11 md:text-14 max-h-[40px]">
+    <div className="fixed top-0 z-50 flex items-center justify-center w-full py-2 bg-dark-2 text-white text-11 md:text-13 border-b border-white/10">
+      <div className="hidden md:flex items-center gap-2 mr-4">
+        <span className="inline-block w-2 h-2 rounded-full bg-red animate-pulse" />
+        <span className="font-display uppercase tracking-widest text-accent text-11">
+          Pré-National
+        </span>
+      </div>
       <Swiper
         slidesPerView={1}
         direction="vertical"
@@ -19,18 +24,24 @@ function Preheader({ data }) {
           disableOnInteraction: false,
         }}
         modules={[Autoplay, Navigation]}
-        className="preheader-swiper w-full md:w-[45%] max-h-[inherit]"
+        className="preheader-swiper w-full md:w-[50%] max-h-[32px]"
       >
-        {data?.map((item, index) => (
-          <SwiperSlide
-            className="text-center flex items-center justify-center"
-            key={index}
-          >
-            <p className="h-full text-center flex items-center justify-center">
-              {item.attributes.texte}
-            </p>
+        {data?.length ? (
+          data.map((item, index) => (
+            <SwiperSlide
+              className="text-center flex items-center justify-center"
+              key={index}
+            >
+              <p className="text-center flex items-center justify-center text-gray-4">
+                {item.attributes.texte}
+              </p>
+            </SwiperSlide>
+          ))
+        ) : (
+          <SwiperSlide className="text-center flex items-center justify-center">
+            <p className="text-gray-4">USD Charonne — Club de basket Paris 20e</p>
           </SwiperSlide>
-        ))}
+        )}
       </Swiper>
     </div>
   );

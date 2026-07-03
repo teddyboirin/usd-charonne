@@ -6,5 +6,9 @@ type Props = {
 };
 
 export default function Container({ children, className }: Props) {
-  return <div className={`max-w-[85%] md:max-w-[90%] mx-auto ${className || ''}`}>{children}</div>;
+  return (
+    <div className={`w-[90%] max-w-container mx-auto ${className || ''}`}>
+      {children}
+    </div>
+  );
 }

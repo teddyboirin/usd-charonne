@@ -2,6 +2,8 @@ import { fetcher } from '@/helpers/utils';
 import Head from '@/components/Head';
 import ImageSide from '@/components/ImageSide';
 import LastResults from '@/components/LastResults';
+import ClubStrip from '@/components/ClubStrip';
+import TeamsPreview from '@/components/TeamsPreview';
 import H2 from '@/components/Titles/h2';
 import Logo from '@/components/icons/logo';
 import H5 from '@/components/Titles/h5';
@@ -12,8 +14,13 @@ export default async function Home() {
     '/homepages?populate[0]=homepage&populate[1]=homepage.photo'
   );
 
-  
-  // const dataResultats = await fetcher('/resultats');
+  let dataResultats = null;
+  try {
+    const result = await fetcher('/resultats');
+    if (result?.data) dataResultats = result;
+  } catch {
+    // API resultats optionnelle
+  }
 
   const maintenance = false;
 
@@ -30,7 +37,9 @@ export default async function Home() {
   return (
     <>
       <Head data={dataSlider} />
-      {/* <LastResults data={dataResultats?.data} /> */}
+      <div id="contenu" />
+      <ClubStrip />
+      <LastResults data={dataResultats?.data} />
       {dataHomepage?.data?.map((item, index) => (
         <ImageSide
           key={index}
@@ -42,6 +51,7 @@ export default async function Home() {
           reverse={item.attributes.homepage.reverse}
         />
       ))}
+      <TeamsPreview />
     </>
   );
 }

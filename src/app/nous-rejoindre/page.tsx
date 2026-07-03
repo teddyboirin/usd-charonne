@@ -23,10 +23,10 @@ export default async function Pratiques() {
       <Subnav>
         <>
           <Link href="#docs">
-            <Item>Documents essentiels</Item>
+            <Item>Documents</Item>
           </Link>
           <Link href="#contacts">
-            <Item>Contacts Entraineurs</Item>
+            <Item>Contacts</Item>
           </Link>
         </>
       </Subnav>
